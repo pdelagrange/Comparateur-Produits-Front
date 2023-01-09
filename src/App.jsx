@@ -21,13 +21,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-<<<<<<< HEAD
-      <Route index element={<Home {...user}/>} />
-      <Route path='/login' element={<Login setUser={setUser}/>}/>
-=======
-          <Route index element={<Home/>} />
+          <Route index element={<Home {...user}/>} />
+          <Route path='/login' element={<Login setUser={setUser}/>}/>
           <Route path="/createProduct" element={<CreateProduct />} />
->>>>>>> 7ae0586 (test)
       </Routes>
     </BrowserRouter>
   );
