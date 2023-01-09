@@ -1,8 +1,8 @@
 # Install project and run project
 
-Clone project `git clone git@github.com:FelixChab/Comparateur-Produits-Front.git`
-Install dependencies `npm install`
-Start project `npm start`
+- Clone project `git clone git@github.com:FelixChab/Comparateur-Produits-Front.git`
+- Install dependencies `npm install`
+- Start project `npm start`
 
 # Getting Started with Create React App
 
