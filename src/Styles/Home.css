@@ -1,0 +1,38 @@
+* {
+    background-color: #2D2D2D;
+}
+
+#menu {
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    color: #FFCA00;
+    font-weight: 800;
+    font-size: 3em;
+}
+
+#wrapper {
+    background-color: #2D2D2D;
+}
+
+input[type="text"] {
+    background-color: #FAFAFA;
+    width: 20em;
+    height: 1.5em;
+    border-radius: 10%;
+}
+
+h2 {
+    color: #FAFAFA;
+    font-weight: 700;
+    font-size: 2em;
+}
+
+h3 {
+    color: #FFCA00;
+    font-weight: 500;
+    font-size: 1.5em;
+}
