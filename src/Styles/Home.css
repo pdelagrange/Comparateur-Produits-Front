@@ -1,8 +1,7 @@
-* {
-    background-color: #2D2D2D;
-}
+*, #wrapper { background-color: #2D2D2D; }
 
 #menu {
+    color: #FAFAFA;
     flex: 1;
     align-items: center;
     justify-content: center;
@@ -14,15 +13,50 @@ h1 {
     font-size: 3em;
 }
 
-#wrapper {
-    background-color: #2D2D2D;
+#search {
+    width: 20em;
+    padding: 0.2em;
+}
+
+#form-wrapper {
+    margin: 1em, auto, 0, auto;
+    clear: both;
+    overflow: hidden;
+}
+
+#elem-wrapper {
+    display: block;
+    float: left;
+    margin-left: 5em;
+    width: 15em;
+    height: 5em;
+}
+
+#elem-wrapper > label {
+    margin-right: 1em;
 }
 
 input[type="text"] {
     background-color: #FAFAFA;
-    width: 20em;
+    height: 1.2em;
+    border-radius: 1%;
+    margin-right: 5em;
+}
+
+input[type="file"] {
     height: 1.5em;
-    border-radius: 10%;
+    color: red;
+}
+
+label {
+    color: #FAFAFA;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+select, option {
+    background-color: #FAFAFA;
+    width: 10em;
 }
 
 h2 {
