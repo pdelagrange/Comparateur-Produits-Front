@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import bcrypt from "bcryptjs-react";
+import {Navigate, useNavigate} from "react-router-dom";
 
 async function loginUser(credentials) {
  return fetch('http://185.212.226.160/login', {
@@ -10,33 +11,45 @@ async function loginUser(credentials) {
    },
    body: JSON.stringify(credentials)
  })
-   .then(data => {
-     console.log(data);
-     return data.json();
-
-   })
 }
 
 export default function Login({ setToken }) {
   const [login, setlogin] = useState();
   const [password, setPassword] = useState();
 
+  const [errMessage, setErrMessage] = useState();
+
+  const navigate = useNavigate();
+
   const handleSubmit = async e => {
 
     const hashedPassword = bcrypt.hashSync(password, 10);
 
     e.preventDefault();
-    const token = await loginUser({
+    loginUser({
       login,
       password: password
-    });
-    setToken(token);
+    }).then((resp) => {
+      if(resp.status !== 200) {
+        return Promise.reject("ERREUR");
+      }
+      return resp.json();
+    }).then((data) => {
+      if(data){
+        setToken(data);
+        navigate('/');
+      }
+    })
+        .catch((err) => {
+          setErrMessage(err);
+        })
   }
 
   return(
     <div className="login-wrapper">
       <h1>Please Log In</h1>
       <form onSubmit={handleSubmit}>
+        {errMessage && <p>MAUVAIS MOT DE PASSE</p>}
         <label>
           <p>login</p>
           <input type="text" onChange={e => setlogin(e.target.value)} />
