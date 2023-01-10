@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import * as categorie from '../Services/Category.Service';
+import { useNavigate } from "react-router-dom";
 
 const CategorieForm = ({ onClick }) => {
   const submit = () => {
     onClick();
   };
+
+  const navigate = useNavigate();
 
   const [counter, setCounter] = useState(0);
 
@@ -23,6 +26,8 @@ const CategorieForm = ({ onClick }) => {
     });
     console.log(caracteristiques);
     categorie.createCategory(name,caracteristiques);
+    navigate('/category')
+
     
   }
 
@@ -49,7 +54,7 @@ const CategorieForm = ({ onClick }) => {
           })}
         </div>
         <a className="addThings" onClick={handleClick}>
-          + Ajouter une catégorie
+          + Ajouter une caracteristique
         </a>
 
         <button type="submit" onClick={createCategorie}>
