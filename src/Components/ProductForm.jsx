@@ -1,15 +1,27 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Select from 'react-select';
+import { getCategories } from '../Services/Category.Service';
 
 const ProductForm = () => {
 
-    const selectableOptions = [
-        { value: 'Adam', label: 'Adam Geoffrey' },
-        { value: 'Jane', label: 'Jane Hibbard' },
-        { value: 'Anabelle', label: 'Anabelle Einstein' },
-        { value: 'Zeus', label: 'Zeus McQueen' }
-      ]
+    const [options, setOptions] = useState([""]);
+    
+    useEffect(() => {
+        const getData = async () => {
+          const arr = [];
+          getCategories().then((response) => response.json()).then((res) => {
+            let result = res;
+            console.log(result)
+            result.map((category) => {
+              return arr.push({value: category.id, label: category.name});
+            });
+            setOptions(arr)
+          });
+        };
+        getData();
+      }, []);
+
 
     const [selectedFile, setSelectedFile] = useState()
     const [preview, setPreview] = useState()
@@ -69,7 +81,7 @@ const ProductForm = () => {
                             <label for="category">Catégorie  :</label>
                             <Select
                             placeholder= "Select an individual"
-                            options={selectableOptions}
+                            options={options}
                             />
                         </span>
                     </div>
