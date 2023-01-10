@@ -18,6 +18,7 @@ code {
   grid-template-columns: repeat(2, 1fr);
   gap: 8px;
 }
+
 header{
   background-color: #2d2d2d;
   width: 100vw;
