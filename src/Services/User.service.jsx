@@ -1,16 +1,18 @@
 import React from "react";
 
+const url = `http://185.212.226.160/users`; 
+
 export const getUsers = async () => {
-    return await fetch(`api-url`);
+    return await fetch(url);
 }
 
-export const getUser = async(username) => {
-    return await fetch(`api-url?${username}`);
+export const getUser = async(id) => {
+    return await fetch(url + `/${id}`);
 }
 
 export const createUser = async (username,password) => {
     return await fetch(
-        `api-url?${username,password}`,
+        url + `?${username,password}`,
         {
             method:'POST',
         });
@@ -18,7 +20,7 @@ export const createUser = async (username,password) => {
 
 export const deleteUser = async (id) => {
     return await fetch(
-        `api-url?${id}`,
+        url + `?${id}`,
         {
             method:'POST',
         });
