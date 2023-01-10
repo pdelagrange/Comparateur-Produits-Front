@@ -22,7 +22,7 @@ const CategorieForm = ({ onClick }) => {
         })
     });
     console.log(caracteristiques);
-    categorie.createCategory(name,[{name:"test"},{name:"test"},{name:"test"}]);
+    categorie.createCategory(name,caracteristiques);
     
   }
 

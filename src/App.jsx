@@ -16,6 +16,7 @@ function App() {
       <Routes>
           <Route index element={<Home/>} />
           <Route path='/login' element={<Login setToken={setToken}/>}/>
+          <Route path='/category/add' element={<CategorieCreation/>}/>
       </Routes>
     </BrowserRouter>
   );
