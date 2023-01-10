@@ -1,9 +1,12 @@
+import React from 'react';
 import ProductForm from "../Components/ProductForm";
+import Header from '../Components/Header';
 const ProductCreation = () => {
+
     return (
-        <div>
-            <h1>Creation Produit</h1>
-            <ProductForm/>
+        <div id='vue'>
+            <Header />
+            <ProductForm/> 
         </div> 
     );
 }
