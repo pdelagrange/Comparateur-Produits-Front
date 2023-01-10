@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from './Views/Login';
 import Home from './Views/Home';
 import ProductCreation from './Views/ProductCreation';
+import CategorieCreation from './Views/CategorieCreation';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           <Route index element={<Home {...user}/>} />
           <Route path='/login' element={<Login setUser={setUser}/>}/>
           <Route path='/product/add' element={<ProductCreation/>}/>  
+          <Route path='/create-categorie' element={<CategorieCreation/>}/>
       </Routes>
     </BrowserRouter>
   );
