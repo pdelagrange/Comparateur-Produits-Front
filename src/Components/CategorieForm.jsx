@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
+import * as categorie from '../Services/Category.Service';
 
 const CategorieForm = ({ onClick }) => {
   const submit = () => {
@@ -10,26 +10,52 @@ const CategorieForm = ({ onClick }) => {
 
   const handleClick = () => {
     setCounter(counter + 1);
-    console.log(counter);
   };
+
+  const createCategorie = () => {
+    let name = document.querySelector("[name='categorieName']").value;
+    let caracteristiques = [];
+    let inputsCara = document.querySelectorAll("input.caracteristiqueValue");
+    inputsCara.forEach(cara => {
+        caracteristiques.push({
+          name: cara.value
+        })
+    });
+    console.log(caracteristiques);
+    categorie.createCategory(name,[{name:"test"},{name:"test"},{name:"test"}]);
+    
+  }
+
   return (
     <div>
-
       <h2>Création catégorie</h2>
-      <label>
-        Nom:
-        <input type="text" />
-      </label>
+        <label>
+          Nom:
+          <input name="categorieName" type="text" />
+        </label>
 
-      <div className="separator"></div>
-      <h2>Catégories</h2>
-      {Array.from(Array(counter)).map((c, index) => {
-        return <label>Catégorie {index} : <input key={c} type="text"></input></label>;
-      })}
-      <div className="cathegorieInput"></div>
-      <button className="addThings" onClick={handleClick}>+ Ajouter une catégorie</button>
+        <div className="separator"></div>
+        <h2>Caractéristiques</h2>
 
-      <button onClick={submit}>Valider</button>
+        <div className="cathegorieInputs">
+          {" "}
+          {Array.from(Array(counter)).map((c, index) => {
+            return (
+              <label key={index}>
+                Caractéristique {index} :
+                <input className="caracteristiqueValue" type="text"></input>
+              </label>
+            );
+          })}
+        </div>
+        <a className="addThings" onClick={handleClick}>
+          + Ajouter une catégorie
+        </a>
+
+        <button type="submit" onClick={createCategorie}>
+          Valider
+        </button>
+
     </div>
   );
 };

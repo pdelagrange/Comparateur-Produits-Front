@@ -11,10 +11,18 @@ export const getCategory = async(id) => {
 }
 
 export const createCategory = async (name, characteristics) => {
-    return await fetch(
-        url + `?${name, characteristics}`,
+    return await fetch(url+`/create`,
         {
-            method:'POST',
+           
+            method:'POST', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: 
+            JSON.stringify({
+                name,
+                characteristics: characteristics
+            }),
         });
 }
 
