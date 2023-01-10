@@ -10,11 +10,15 @@ export const getUser = async(id) => {
     return await fetch(url + `/${id}`);
 }
 
-export const createUser = async (username,password) => {
+export const createUser = async (login,password) => {
     return await fetch(
-        url + `?${username,password}`,
+        url+'/create',
         {
             method:'POST',
+            body: JSON.stringify({
+                login,
+                password
+            })
         });
 }
 

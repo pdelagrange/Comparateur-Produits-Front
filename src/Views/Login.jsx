@@ -61,6 +61,9 @@ export default function Login({ setToken }) {
         <div>
           <button type="submit">Submit</button>
         </div>
+        <div>
+          <a href="/signIn">S'inscrire</a>
+        </div>
       </form>
     </div>
   )
