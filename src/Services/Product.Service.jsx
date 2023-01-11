@@ -10,11 +10,21 @@ export const getProduct = async(id) => {
     return await fetch(url + `?${id}`);
 }
 
-export const createProduct = async (name, description, categoryId) => {
-    return await fetch(
-        url + `?${name, description, categoryId}`,
+export const createProduct = async (name, price, description, categoryId) => {
+    return await fetch(url+`/create`,
         {
-            method:'POST',
+           
+            method:'POST', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: 
+            JSON.stringify({
+                name,
+                price,
+                description,
+                characteristics: characteristics
+            }),
         });
 }
 
