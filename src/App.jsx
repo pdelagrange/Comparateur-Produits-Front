@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import './../src/Styles/App.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {BrowserRouter, Routes, Route, Outlet, useNavigate} from "react-router-dom";
 
 import Login from './Views/Login';
 import Home from './Views/Home';
@@ -13,14 +13,23 @@ import useToken from "./Utils.jsx/UseToken";
 function App() {
     const { token, setToken } = useToken();
 
+    function Logout(){
+        const navigate = useNavigate();
+        sessionStorage.removeItem('token');
+        useEffect(() =>{
+            navigate('/');
+        })
+    }
 
   return (
     <BrowserRouter>
       <Routes>
           <Route index element={<Home/>} />
           <Route path='/login' element={<Login setToken={setToken}/>}/>
+          <Route path='/logout' element={<Logout/>} />
           <Route path='/category/add' element={<CategorieCreation/>}/>
           <Route path='/category' element={<Categories/>}/>
+
       </Routes>
     </BrowserRouter>
   );
