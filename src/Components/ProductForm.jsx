@@ -4,6 +4,7 @@ import { getCategories } from '../Services/Category.Service';
 import { getCategoryCharacteristics } from '../Services/Category.Service';
 import { createProduct } from '../Services/Product.Service';
 import { useNavigate } from "react-router-dom";
+import Error from "./Error";
 
 
 const ProductForm = ({ onClick }) => {
@@ -16,6 +17,8 @@ const ProductForm = ({ onClick }) => {
     const [price, setPrice] = useState(0);
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState();  
+    const [toggle, setToggle] = useState(false)
+
     const navigate = useNavigate();
 
     
@@ -68,11 +71,17 @@ const ProductForm = ({ onClick }) => {
         let empty = false;
         inputsCara.forEach(cara => {
             if ((cara.value && cara.type != "checkbox") || cara.type == "checkbox"){
-                console.log(cara.value)
-                caracteristiques.push({
-                    id: cara.id,
-                    value: cara.value
-                  })
+                if (cara.type == "checkbox"){
+                    caracteristiques.push({
+                        id: cara.id,
+                        value: cara.checked
+                      })
+                }else{
+                    caracteristiques.push({
+                        id: cara.id,
+                        value: cara.value
+                      })
+                }
             }else{
                 empty = true;
             }
@@ -80,9 +89,9 @@ const ProductForm = ({ onClick }) => {
         })
         if (name != "" && price != 0 && description != "" && category && empty == false){
             createProduct(name,description,price,category,caracteristiques);
-            navigate('/product/add')
+            navigate('/products');
         }else{
-            console.log("erreur");
+            setToggle(true);
         }
       }
 
@@ -91,6 +100,7 @@ const ProductForm = ({ onClick }) => {
         <div id="form-wrapper">
                 <section className="layout">
                     <div>
+                    {toggle && (<Error message="Un champs ou plusieurs sont vide" />)}
                         <span id="elem-wrapper">
                             <label>Nom :</label> <br/>
                             <input type="text"  onChange={(e) => setName(e.target.value)}/>
@@ -120,7 +130,7 @@ const ProductForm = ({ onClick }) => {
                         <br/>
                         <div id="caracteristiques">
                         {cars != null && Array.from(cars).map((c, index) => {
-                            return <div><label>{c.name} : </label><br/><input className='caracteristiqueValue' id={c.id} type={c.type}></input><br/></div> ;
+                            return <div key={index}><label>{c.name} : </label><br/><input className='caracteristiqueValue' id={c.id} type={c.type}></input><br/></div> ;
                         })}
                         </div>
                         <br/>
