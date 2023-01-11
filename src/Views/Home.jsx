@@ -1,14 +1,14 @@
 import Header from '../Components/Header';
-import useToken from "../Utils.jsx/UseToken";
+import {useToken} from "../Utils/Token";
 const Home = () => {
-    const { token, setToken } = useToken();
-    console.log(token);
+    const token = useToken();
+    const user = token.getUserConnected();
     return (     
         <div id='vue'>
             <Header/>
             <h1>HOME</h1>
-            {token &&
-                <h2>{token.login}</h2>
+            {user &&
+                <h2>{user.login}</h2>
             }
 
         </div>

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import bcrypt from "bcryptjs-react";
-import {Navigate, useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import {useToken} from "../Utils/Token";
+import {alreadyConnectedRescriction} from "../Utils/AdminPageRestriction";
 
 async function loginUser(credentials) {
  return fetch('http://185.212.226.160/login', {
@@ -13,7 +14,8 @@ async function loginUser(credentials) {
  })
 }
 
-export default function Login({ setToken }) {
+export default function Login() {
+  alreadyConnectedRescriction();
   const [login, setlogin] = useState();
   const [password, setPassword] = useState();
 
@@ -22,6 +24,8 @@ export default function Login({ setToken }) {
   const navigate = useNavigate();
 
   const handleSubmit = async e => {
+
+    const token = useToken();
 
     const hashedPassword = bcrypt.hashSync(password, 10);
 
@@ -36,7 +40,7 @@ export default function Login({ setToken }) {
       return resp.json();
     }).then((data) => {
       if(data){
-        setToken(data);
+        token.setToken(data);
         navigate('/');
       }
     })
@@ -68,7 +72,3 @@ export default function Login({ setToken }) {
     </div>
   )
 }
-
-Login.propTypes = {
-  setToken: PropTypes.func.isRequired
-};
