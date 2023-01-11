@@ -31,8 +31,15 @@ export const createProduct = async (name, description, price, categoryId, charac
 
 export const deleteProduct = async (id) => {
     return await fetch(
-        url + `?${id}`,
+        url + `/delete`,
         {
             method:'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: 
+            JSON.stringify({
+                id
+            })
         });
 }
