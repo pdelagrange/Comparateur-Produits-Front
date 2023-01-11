@@ -6,7 +6,7 @@ const SimpleProduct = (props) => {
     const imgSrc = `url(data:image/jpeg;base64,${props.image})`;
 
     return (
-        <a href={"product/"+props.id}>
+        <a href={"products/"+props.id}>
         <div key={props.id}>
             <p>{props.name}</p>
             <img src={imgSrc} alt="product_img" />

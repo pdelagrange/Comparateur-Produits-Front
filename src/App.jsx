@@ -8,6 +8,7 @@ import CategorieCreation from './Views/CategorieCreation';
 import Categories from './Views/Categories'
 import SignInForm from './Components/SignInForm';
 import Products from './Views/Products';
+import ProductDetails from './Views/ProductDetails';
 import {useEffect} from "react";
 
 function App() {
@@ -27,10 +28,10 @@ function App() {
           <Route path='/logout' element={<Logout/>} />
           <Route path='/category/add' element={<CategorieCreation/>}/>
           <Route path='/product/add' element={<ProductCreation/>}/>
-          <Route path='/products/:id' element={<ProductDetails/>}/>
           <Route path='/signIn' element={<SignInForm/>}/>
           <Route path='/category' element={<Categories/>}/>
           <Route path='/products' element={<Products/>}/>
+          <Route path='/products/:id' element={<ProductDetails/>}/>
       </Routes>
     </BrowserRouter>
   );

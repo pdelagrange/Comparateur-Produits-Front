@@ -1,27 +1,33 @@
 import Product from "./../Components/Product";
 import Details from "./../Components/Details";
 import Header from "./../Components/Header";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import * as prodService from "./../Services/Product.Service";
 
 const ProductDetails = () => {
     
-    const [data, setData] = useState([]); 
-
+    const [product, setProduct] = useState(); 
+    const {id} = useParams();
+    
     // Récupération information produit
     useEffect(() => {
-        console.log("useEffect() called");
-        prodService.getProduct(id).then((response) => response.json()).then((p) => {
-            setData(p);
-        });
+        prodService.getProduct(id).then((response) => response.json())
+            .then((p) => { setProduct(p[id-1]) }) // Sinon on récupère l'ensemble des produits...
+            .catch(error => console.log(error));
     }, []); 
-    console.log(data);
+    console.log(product);
 
     return (
         <div id="vue">
             <Header />
-            <Product name={data.name} prix={data.price} />
-            <Details desc={data.description} char={data.characteristics} />
+            {
+                product && 
+                <Product name={product.name} price={product.price} /> 
+            }
+            {   product && 
+                <Details desc={product.description} char={product.characteristics} />
+            }
         </div>
     )
 }

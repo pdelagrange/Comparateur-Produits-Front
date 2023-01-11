@@ -1,18 +1,17 @@
-const Details = ({description}, {characteristics}) => {
+import React from "react";
 
-    // TODO
-    function test() {
-        console.log("Description: " + description);
-        console.log("Caractéristiques: " + characteristics);
-    }
+const Details = (props) => {
 
     return (
         <div>
-            <h3>Description : </h3>
-            <p>{description}</p>
-            <h3>Charactéristiques : </h3>
-            { characteristics.forEach(char => { <p>{char}</p> }) }
-            <input type="submit" onClick={test} />
+            <div id="desc">
+                <h3>Description : </h3>
+                <p>{ props.desc }</p>
+            </div>
+            <div id="char">
+                <h3>Charactéristiques : </h3>
+                <p>{ props.char }</p>
+            </div>
         </div>
     );
 }

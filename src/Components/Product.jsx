@@ -1,17 +1,15 @@
-const Product = ({name, price}) => {
+import React from "react";
 
-    // TODO
-    function test() {
-        console.log("Nom: " + name);
-        console.log("Prix: " + price);
-    }
+const Product = (props) => {
+
+    const imgSrc = `url(data:image/jpeg;base64,${props.image})`;
 
     return (
         <div>
-            <h2>{name}</h2>
+            <h2>{ props.name }</h2>
             <img src="" placeholder="visuel produit"/>
-            <a onClick={test}>+ Ajouter un objet à comparer</a>
-            <h3>{price}</h3>
+            <a href="https://google.com">+ Ajouter un objet à comparer</a>
+            <h3>{ props.price } €</h3>
         </div>
     );
 }
