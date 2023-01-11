@@ -13,7 +13,8 @@ const ProductDetails = () => {
     // Récupération information produit
     useEffect(() => {
         prodService.getProduct(id).then((response) => response.json())
-            .then((p) => { console.log('p', p);setProduct(p);})
+            .then((p) => { 
+                setProduct(p);})
             .catch(error => console.log(error));
     }, []);
 

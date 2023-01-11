@@ -4,22 +4,19 @@ import { Card } from "react-bootstrap";
 const Details = (props) => {
 
     return (
-        <Card className="m-3 p-b-3 text bg-info text-white">
-            <Card.Body style={{display: "flex"}}>
-                <div>
-                    <Card className="bg-info text-white m-b-2 fs-4 border-0">
-                        <h3>Description : </h3>
-                        <Card.Text className="text-white fs-5">{props.desc}</Card.Text>
+        <Card className="m-3 mt-0 p-b-3 text bg-info text-white">
+            <Card.Body className= "row" style={{display: "flex"}}>
+                    <Card className="bg-white text-black text-uppercase fs-3 border-0 p-2 w-100 h-25 m-2">
+                        <h3>Description</h3>
+                        <Card.Text className="text-info text-capitalize fs-5 w-100">{props.desc}</Card.Text>
                     </Card>
-                    <br></br>
-                    <Card className="bg-info w-auto border-0">
-                        <h3>Caractéristiques : </h3>
+                    <Card className="text-uppercase bg-info border-0 p-2 w-100 m-2">
+                        <h3>Caractéristiques</h3>
                         {props.char.map((item, index) => (
-                            <Card.Text key={item.characteristic_value.characteristicTypeId} className="text-white fs-5">{item.name}: {item.characteristic_value.value}</Card.Text>
+                            <Card.Text key={item.characteristic_value.characteristicTypeId} className="text-white text-capitalize fs-5">{item.name}: {item.characteristic_value.value}</Card.Text>
                         ))
                         }
-                    </Card>
-                </div>
+                    </Card>   
             </Card.Body>
         </Card>
     );
