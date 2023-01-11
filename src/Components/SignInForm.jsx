@@ -72,8 +72,7 @@ const SignInForm = () => {
       const handleClick = async () => {
         if(error.username === '' && error.confirmPassword === '' && error.password === '' ){
             //call api
-            const hashedPassword = await bcrypt.hash(input.password, 10);
-            const response = await User.createUser(input.username, hashedPassword);
+            const response = await User.createUser(input.username, input.password);
             if(response.status === 200){
               navigate('/login');
             } else {
