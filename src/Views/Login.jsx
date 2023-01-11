@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import bcrypt from "bcryptjs-react";
 import { useNavigate } from "react-router-dom";
 import { useToken } from "../Utils/Token";
-import { alreadyConnectedRescriction } from "../Utils/AdminPageRestriction";
+import {alreadyConnectedRescriction, alreadyConnectedRestriction} from "../Utils/AdminPageRestriction";
 import Error from "../Components/Error";
 
 async function loginUser(credentials) {
