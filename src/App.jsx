@@ -9,6 +9,7 @@ import CategorieCreation from './Views/CategorieCreation';
 import Categories from './Views/Categories'
 
 import useToken from "./Utils.jsx/UseToken";
+import SignInForm from './Components/SignInForm';
 
 function App() {
     const { token, setToken } = useToken();
@@ -28,8 +29,8 @@ function App() {
           <Route path='/login' element={<Login setToken={setToken}/>}/>
           <Route path='/logout' element={<Logout/>} />
           <Route path='/category/add' element={<CategorieCreation/>}/>
+          <Route path='/signIn' element={<SignInForm/>}/>
           <Route path='/category' element={<Categories/>}/>
-
       </Routes>
     </BrowserRouter>
   );
