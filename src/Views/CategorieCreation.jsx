@@ -7,7 +7,7 @@ import {useAdminRestriction} from "../Utils/AdminPageRestriction";
 function CategorieCreation() {
     useAdminRestriction();
   return (
-    <div id='vue'>
+    <div id='vue' className="bg-secondary">
       <Header />
       <CategorieForm />
     </div>

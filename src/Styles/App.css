@@ -88,3 +88,12 @@ body > div #vue{
   margin-right: 6px;
   filter: invert(96%) sepia(2%) saturate(1282%) hue-rotate(189deg) brightness(116%) contrast(96%);
 }
+
+.separator{
+  height: 2px;
+  width: 150px;
+  background-color: #FFCA00;
+}
+a:hover {
+  cursor: pointer;
+}
