@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react';
+import './../src/Styles/App.scss';
 import './../src/Styles/App.css';
 import {BrowserRouter, Routes, Route, Outlet, useNavigate} from "react-router-dom";
 
