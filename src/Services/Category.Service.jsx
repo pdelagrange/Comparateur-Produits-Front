@@ -28,9 +28,16 @@ export const createCategory = async (name, characteristics) => {
 
 export const deleteCategory = async (id) => {
     return await fetch(
-         url + `/${id}`,
+        url + `/delete`,
         {
             method:'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: 
+            JSON.stringify({
+                id
+            })
         });
 }
 

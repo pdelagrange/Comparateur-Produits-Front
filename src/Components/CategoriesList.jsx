@@ -9,10 +9,16 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import * as category from '../Services/Category.Service'
+import { useToken } from "../Utils/Token";
 
 const CategoriesList = () => {
     const [categories, setCategories] = useState([]);
     const navigate = useNavigate();
+
+    const token = useToken();
+    const user = token.getUserConnected();
+    //user?.admin
 
     useEffect(() => {
         categoriy_service.getCategories()
@@ -25,14 +31,22 @@ const CategoriesList = () => {
         navigate(''+id)
     }
 
+    const handleDelete = (e) => {
+        console.log(e.target.id);
+        category.deleteCategory(e.target.id);
+    }
+
     return (
         <div>
             <Container>
                 <Row>
                     {categories.map((item, index) => (
                         <Col key={item.id} md={4}>
-                            <Card className="my-3 p-3 bg-info text-center text-primary" onClick={() => handleClick(item.id)}>
-                                <Card.Body>
+                            <Card className="my-3 p-3 bg-info text-center text-primary clickable">
+                            <div style={{display:"flex"}}>
+                                {user?.admin && <Card.Img id={item.id} onClick={handleDelete} className="white clickable-img" src='/icons/trash.svg'/>}
+                            </div>
+                                <Card.Body onClick={() => handleClick(item.id)}>
                                     <Card.Title>{item.name}</Card.Title>
                                 </Card.Body>
                             </Card>
