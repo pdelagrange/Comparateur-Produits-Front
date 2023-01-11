@@ -3,13 +3,11 @@ import Select from 'react-select';
 import { getCategories } from '../Services/Category.Service';
 import { getCategoryCharacteristics } from '../Services/Category.Service';
 import { createProduct } from '../Services/Product.Service';
+import { useNavigate } from "react-router-dom";
+
 
 const ProductForm = ({ onClick }) => {
     
-    const submit = () => {
-        onClick();
-      };    
-
     const [options, setOptions] = useState([""]);
     const [selectedFile, setSelectedFile] = useState()
     const [preview, setPreview] = useState()
@@ -17,9 +15,9 @@ const ProductForm = ({ onClick }) => {
     const [name, setName] = useState("");
     const [price, setPrice] = useState(0);
     const [description, setDescription] = useState("");
-    const [category, setCategory] = useState();
-    const [caracteristiques, setCaracteristiques] = useState("");
-  
+    const [category, setCategory] = useState();  
+    const navigate = useNavigate();
+
     
     useEffect(() => {
         const getData = async () => {
@@ -41,7 +39,6 @@ const ProductForm = ({ onClick }) => {
             setPreview(undefined)
             return
         }
-
         const objectUrl = URL.createObjectURL(selectedFile)
         setPreview(objectUrl)
 
@@ -53,7 +50,6 @@ const ProductForm = ({ onClick }) => {
             setSelectedFile(undefined)
             return
         }
-
         setSelectedFile(e.target.files[0])
     }
 
@@ -61,15 +57,18 @@ const ProductForm = ({ onClick }) => {
         getCategoryCharacteristics(e.value).then((response) => response.json())
         .then((res) => {
             setCars(res.characteristic_types);
+            setCategory(res.id);
         });
     }
 
-    const createProduct = () => {
+    function handleClick (e) {
+        e.preventDefault();
         let caracteristiques = [];
         let inputsCara = document.querySelectorAll("input.caracteristiqueValue");
         let empty = false;
         inputsCara.forEach(cara => {
-            if (cara.value){
+            if ((cara.value && cara.type != "checkbox") || cara.type == "checkbox"){
+                console.log(cara.value)
                 caracteristiques.push({
                     id: cara.id,
                     value: cara.value
@@ -78,41 +77,37 @@ const ProductForm = ({ onClick }) => {
                 empty = true;
             }
     
-        });
-        if (name, price, description, category, !empty){
+        })
+        if (name != "" && price != 0 && description != "" && category && empty == false){
             createProduct(name,description,price,category,caracteristiques);
             navigate('/product/add')
         }else{
             console.log("erreur");
         }
-        
-    
-        
       }
 
     
     return (
         <div id="form-wrapper">
-            <form>
                 <section className="layout">
                     <div>
                         <span id="elem-wrapper">
                             <label>Nom :</label> <br/>
-                            <input type="text" required onChange={(e) => setName(e.target.value)}/>
+                            <input type="text"  onChange={(e) => setName(e.target.value)}/>
                         </span><br/><br/>
                         <span id="elem-wrapper">
                         <label>Prix :</label><br/>  
-                            <input required type="number" name="prix" onChange={(e) => setPrice(e.target.value)} placeholder=" €"/>
+                            <input  type="number" name="prix" onChange={(e) => setPrice(e.target.value)} placeholder=" €"/>
                         </span><br/><br/>
 
                         <span id="elem-wrapper">
                             <label>Description :</label> <br/>
-                            <input required type="text" name="description" onChange={(e) => setDescription(e.target.value)}/>
+                            <input  type="text" name="description" onChange={(e) => setDescription(e.target.value)}/>
                         </span><br/><br/>
                             
                         <span id="elem-wrapper">
                             <label>Image :</label> <br/>
-                            <input required type="file" onChange={onSelectFile} name="image" accept="image/png, image/jpeg" />
+                            <input  type="file" onChange={onSelectFile} name="image" accept="image/png, image/jpeg" />
                             {selectedFile &&  <img src={preview} /> }
                         </span>
                     </div>
@@ -130,10 +125,11 @@ const ProductForm = ({ onClick }) => {
                         </div>
                         <br/>
 
-                        <button onClick={submit}>Valider</button>
+                        <button type="submit" onClick={handleClick}>
+                        Valider
+                        </button>
                     </div>
                 </section>
-            </form>
         </div>
     );
 }
