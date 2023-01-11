@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+
+body > div #vue{
+  min-height: 100vh;
+}
