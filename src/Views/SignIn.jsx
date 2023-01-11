@@ -98,11 +98,17 @@ const SignInForm = () => {
         <form onSubmit={handleClick}
           className="pt-4 d-flex justify-content-center flex-column align-items-center w-50"
         >
-          {errorStatus && (
-            <Error message="Le mot de passe ou l'identifiant est incorrect" />
+          {error.username && (
+            <Error message={error.username} />
           )}
+          {error.password &&  <Error message={error.password}/>}
+
+          {error.confirmPassword && (
+            <Error message={error.confirmPassword}/>
+          )}
+
            <span id="elem-wrapper" className="pt-4 w-100 d-flex justify-content-center">
-          <input
+          <input required
             type="text"
             name="username"
             placeholder="Identifiant"
@@ -111,11 +117,11 @@ const SignInForm = () => {
             onBlur={validateInput}
             className="bg-info mt-1 text-primary border-0 rounded inputHeight w-50 fs-3"
           ></input>
-          {error.username && <span className="err">{error.username}</span>} </span>
+          </span>
         
           <span id="elem-wrapper" className="pt-4 w-100 d-flex justify-content-center">
 
-          <input
+          <input required
             type="password"
             name="password"
             placeholder="mot de passe"
@@ -124,11 +130,11 @@ const SignInForm = () => {
             onBlur={validateInput}
             className="bg-info mt-1 text-primary border-0 rounded inputHeight w-50 fs-3"
           ></input>
-          {error.password && <span className="err">{error.password}</span>}
+          
           </span>
           <span id="elem-wrapper" className="pt-4 w-100 d-flex justify-content-center">
 
-          <input
+          <input required
             type="password"
             name="confirmPassword"
             placeholder="validez le mot de passe"
@@ -137,9 +143,7 @@ const SignInForm = () => {
             onBlur={validateInput}
             className="bg-info mt-1 text-primary border-0 rounded inputHeight w-50 fs-3"
           ></input>
-          {error.confirmPassword && (
-            <span className="err">{error.confirmPassword}</span>
-          )}</span>
+          </span>
 
         <div className="pt-5">
             <button className="btn btn-primary fs-3" type="submit">S'inscrire</button>
