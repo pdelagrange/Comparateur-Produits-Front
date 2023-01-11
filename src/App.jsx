@@ -6,7 +6,7 @@ import Home from './Views/Home';
 import ProductCreation from './Views/ProductCreation';
 import CategorieCreation from './Views/CategorieCreation';
 import Categories from './Views/Categories'
-import SignInForm from './Components/SignInForm';
+import SignIn from './Views/SignIn';
 import Products from './Views/Products';
 import ProductDetails from './Views/ProductDetails';
 import {useEffect} from "react";
@@ -30,7 +30,7 @@ function App() {
           <Route path='/account' element={<Account/>}/>
           <Route path='/category/add' element={<CategorieCreation/>}/>
           <Route path='/product/add' element={<ProductCreation/>}/>
-          <Route path='/signIn' element={<SignInForm/>}/>
+          <Route path='/signIn' element={<SignIn/>}/>
           <Route path='/category' element={<Categories/>}/>
           <Route path='/products/:id' element={<ProductDetails/>}/>
           <Route path='/category/:id' element={<Products/>}/>

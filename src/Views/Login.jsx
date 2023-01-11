@@ -49,31 +49,43 @@ export default function Login() {
   };
 
   return (
-    <div className="bg-secondary" id="vue">
-      <div id="logo">
+    <div id="vue" className="bg-secondary">
+      <div id="logo" className="pt-5 d-flex justify-content-center fs-1 ">
         <h1>CardSelector</h1>
       </div>
-      <h2 className="text-primary">Connexion</h2>
-      <form onSubmit={handleSubmit}>
-        {errMessage && (
-          <Error message="Le mot de passe ou l'identifiant est incorrect" />
-        )}
-        <div className="inputDiv">
-          <label>login</label>
-          <input type="text" onChange={(e) => setlogin(e.target.value)} />
-        </div>
-        <div className="inputDiv">
-          <label>Password</label>
-          <input type="password" onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div>
-          <button type="submit">Submit</button>
-        </div>
-        <div>
-          <a href="/signIn">S'inscrire</a>
-        </div>
-      </form>
+      <div className="pt-5 d-flex justify-content-center flex-column align-items-center">
+        <h2 className="text-primary fs-1">Connexion</h2>
+        <form
+          onSubmit={handleSubmit}
+          className="pt-4 d-flex justify-content-center flex-column align-items-center w-50"
+        >
+          {errMessage && (
+            <Error message="Le mot de passe ou l'identifiant est incorrect" />
+          )}
+          <span id="elem-wrapper" className="pt-4 w-100 d-flex justify-content-center">
+            <input
+              placeholder="Identifiant"
+              className="bg-info mt-1 text-primary border-0 rounded inputHeight w-50 fs-3"
+              type="text"
+              onChange={(e) => setlogin(e.target.value)}
+            />
+          </span>
+          <span id="elem-wrapper" className="pt-4 w-100 d-flex justify-content-center">
+            <input
+              placeholder="Mot de passe"
+              className="bg-info mt-1 text-primary border-0 rounded inputHeight w-50 fs-3"
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </span>
+          <div className="pt-5">
+            <button className="btn btn-primary fs-3" type="submit">Se connecter</button>
+          </div>
+          <div className="pt-2 fs-4">
+            <a href="/signIn" className="text-primary">S'inscrire</a>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
