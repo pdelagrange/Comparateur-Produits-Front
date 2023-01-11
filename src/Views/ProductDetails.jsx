@@ -23,7 +23,7 @@ const ProductDetails = () => {
             <Header />
             {
                 product && 
-                <Product name={product.name} price={product.price} /> 
+                <Product name={product.name} price={product.price} img={product.image} /> 
             }
             {   product && 
                 <Details desc={product.description} char={product.characteristics} />
