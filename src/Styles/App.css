@@ -28,11 +28,21 @@
   color: white;
 }
 
+.image{
+  height: 25vh;
+  width: 12vw;
+}
+
+.add-button{
+  color: #ECECEC;
+  font-size: 1em;
+}
+
 a{
   text-decoration: none;
 }
 
-.clickable-img:hover{
+.clickable:hover{
   cursor: pointer;
 }
 
@@ -79,8 +89,15 @@ body > div #vue{
   filter: invert(96%) sepia(2%) saturate(1282%) hue-rotate(189deg) brightness(116%) contrast(96%);
 }
 
-
 #main-menu{
   min-height:80vh;
   height: 100%;
+
+.separator{
+  height: 2px;
+  width: 150px;
+  background-color: #FFCA00;
+}
+a:hover {
+  cursor: pointer;
 }
