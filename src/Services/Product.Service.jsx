@@ -10,7 +10,7 @@ export const getProduct = async(id) => {
     return await fetch(url + `?${id}`);
 }
 
-export const createProduct = async (name, price, description, categoryId) => {
+export const createProduct = async (name, description, price, categoryId, characteristics) => {
     return await fetch(url+`/create`,
         {
            
@@ -21,9 +21,10 @@ export const createProduct = async (name, price, description, categoryId) => {
             body: 
             JSON.stringify({
                 name,
-                price,
                 description,
-                characteristics: characteristics
+                price,
+                categoryId,
+                characteristics
             }),
         });
 }
