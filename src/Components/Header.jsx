@@ -10,8 +10,6 @@ function Header() {
   const token = useToken();
   const user = token.getUserConnected();
 
-  const navigate = useNavigate();
-
   return (
     <header className='mb-3'>
       <div id='logo'>
