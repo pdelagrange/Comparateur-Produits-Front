@@ -32,6 +32,10 @@ a{
   text-decoration: none;
 }
 
+.clickable-img:hover{
+  cursor: pointer;
+}
+
 .App-link {
   color: #61dafb;
 }

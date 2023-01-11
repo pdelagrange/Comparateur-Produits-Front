@@ -4,9 +4,11 @@ import SimpleProduct from "../Components/SimpleProduct";
 import Header from "../Components/Header";
 import { useParams } from "react-router-dom";
 import * as category from "../Services/Category.Service";
+import { useToken } from "../Utils/Token";
 
 const Products = () => {
-    
+
+
     const [cat, setCategories] = useState();
 
     const { id } = useParams();
