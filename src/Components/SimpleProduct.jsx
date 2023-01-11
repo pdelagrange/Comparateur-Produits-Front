@@ -7,6 +7,8 @@ const SimpleProduct = (props) => {
 
     const navigate = useNavigate();
 
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+
     var img='/icons/no-photo.png'
 
     if(props.image != null){
@@ -21,15 +23,21 @@ const SimpleProduct = (props) => {
         navigate('/product/add')
     }
 
+    const reload = async () => {
+        await delay(200);
+        location.reload()
+    }
+
     const handleDelete = (e) => {
         product.deleteProduct(props.id);
+        reload();
     }
 
     return (
         <Card  className="my-3 p-3 text-center bg-info text-primary">
             <div style={{display:"flex"}}>
-            {user?.admin && <Card.Img onClick={handleModify} className="white clickable-img" src='/icons/pencil.svg' />}
-            {user?.admin && <Card.Img onClick={handleDelete} className="white clickable-img" src='/icons/trash.svg'/>}
+            {user?.admin && <Card.Img onClick={handleModify} className="white clickable" src='/icons/pencil.svg' />}
+            {user?.admin && <Card.Img onClick={handleDelete} className="white clickable" src='/icons/trash.svg'/>}
             </div>
                 <a className="text-primary" href={"/products/"+props.id}>
                 <Card.Body style={{display: "flex"}}>

@@ -9,7 +9,7 @@ const Categories = () => {
     return (
         <div className="bg-secondary" id='vue'>
             <Header />
-            <Banner section="Categories" link="/category/add" buttonText="Ajouter une catégorie"/>
+            <Banner section="Categories" link="/category/add" buttonText="+ Ajouter une catégorie"/>
             <List />
         </div>
     )
