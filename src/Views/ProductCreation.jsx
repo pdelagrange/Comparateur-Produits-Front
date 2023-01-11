@@ -7,7 +7,7 @@ const ProductCreation = () => {
     useAdminRescriction();
 
     return (
-        <div id='vue'>
+        <div id='vue' className='bg-secondary'> 
             <Header />
             <ProductForm/> 
         </div> 

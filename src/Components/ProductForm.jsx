@@ -97,45 +97,46 @@ const ProductForm = ({ onClick }) => {
 
     
     return (
-        <div id="form-wrapper">
+        <div id="form-wrapper" className='m-4'>
                 <section className="layout">
-                    <div>
+                    <div className='m-4'>
                     {toggle && (<Error message="Un champs ou plusieurs sont vide" />)}
                         <span id="elem-wrapper">
-                            <label>Nom :</label> <br/>
-                            <input type="text"  onChange={(e) => setName(e.target.value)}/>
+                            <label className='bg-white h2'>Nom :</label> <br/>
+                            <input className='bg-info mt-1 form-control form-rounded w-100' type="text"  onChange={(e) => setName(e.target.value)}/>
                         </span><br/><br/>
                         <span id="elem-wrapper">
-                        <label>Prix :</label><br/>  
-                            <input  type="number" name="prix" onChange={(e) => setPrice(e.target.value)} placeholder=" €"/>
+                        <label className='bg-white h2'>Prix :</label><br/>  
+                            <input className='bg-info mt-1 form-control form-rounded w-100' type="number" name="prix" onChange={(e) => setPrice(e.target.value)} placeholder=" €"/>
                         </span><br/><br/>
 
                         <span id="elem-wrapper">
-                            <label>Description :</label> <br/>
-                            <input  type="text" name="description" onChange={(e) => setDescription(e.target.value)}/>
+                            <label className='bg-white h2'>Description :</label> <br/>
+                            <textarea className='bg-info mt-1 form-control form-rounded w-100' rows="3" name="description" onChange={(e) => setDescription(e.target.value)}/>
                         </span><br/><br/>
                             
                         <span id="elem-wrapper">
-                            <label>Image :</label> <br/>
-                            <input  type="file" onChange={onSelectFile} name="image" accept="image/png, image/jpeg" />
+                            <label className='bg-white h2'>Image :</label> <br/>
+                            <input className='bg-info mt-1 form-control form-rounded w-100' type="file" onChange={onSelectFile} name="image" accept="image/png, image/jpeg" />
                             {selectedFile &&  <img src={preview} /> }
                         </span>
                     </div>
                     <div>
                         <span id="elem-wrapper">
-                            <label htmlFor="category">Catégorie  :</label>
+                            <label htmlFor="category" className='bg-white h2'>Catégorie  :</label>
                             <Select placeholder= "Select an individual" options={options} onChange={onSelectCategory} required />
                                 
                         </span>
                         <br/>
                         <div id="caracteristiques">
                         {cars != null && Array.from(cars).map((c, index) => {
-                            return <div key={index}><label>{c.name} : </label><br/><input className='caracteristiqueValue' id={c.id} type={c.type}></input><br/></div> ;
+
+                            return <div key={index}><label className='bg-white h2'>{c.name} : </label><br/><input className='caracteristiqueValue bg-info mt-1 form-control form-rounded w-100' id={c.id} type={c.type}></input><br/></div> ;
                         })}
                         </div>
                         <br/>
 
-                        <button type="submit" onClick={handleClick}>
+                        <button className='bg-white' type="submit" onClick={handleClick}>
                         Valider
                         </button>
                     </div>
