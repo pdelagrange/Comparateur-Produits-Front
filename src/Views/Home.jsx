@@ -1,16 +1,11 @@
 import Header from '../Components/Header';
-import {useToken} from "../Utils/Token";
-const Home = () => {
-    const token = useToken();
-    const user = token.getUserConnected();
-    return (     
-        <div id='vue'>
-            <Header/>
-            <h1>HOME</h1>
-            {user &&
-                <h2>{user.login}</h2>
-            }
+import MainMenu from '../Components/MainMenu'
 
+const Home = () => {
+    return (
+        <div className='bg-secondary' id='vue'>
+            <Header />
+            <MainMenu/>
         </div>
     );
 }
