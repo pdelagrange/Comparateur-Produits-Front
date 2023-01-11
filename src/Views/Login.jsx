@@ -24,15 +24,12 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleSubmit = async e => {
-
+    e.preventDefault();
     const token = useToken();
 
-    const hashedPassword = bcrypt.hashSync(password, 10);
-
-    e.preventDefault();
     loginUser({
       login,
-      password: password
+      password
     }).then((resp) => {
       if(resp.status !== 200) {
         return Promise.reject("ERREUR");
