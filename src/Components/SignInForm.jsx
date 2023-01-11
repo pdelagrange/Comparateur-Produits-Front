@@ -7,6 +7,8 @@ const SignInForm = () => {
 
     const navigate = useNavigate();
 
+    const [errorStatus, setErrorStatus] = useState();
+
     const [input, setInput] = useState({
         username: '',
         password: '',
@@ -75,9 +77,11 @@ const SignInForm = () => {
             const hashedPassword = await bcrypt.hash(input.password, 10);
             const response = await User.createUser(input.username, hashedPassword);
             console.log(response);
-            /*
-            * traiter la réponse -> rediriger
-            */
+            if(response.status === 200){
+              navigate('/login');
+            } else {
+              setErrorStatus(response.status);
+            }
         }
       }
      
@@ -85,6 +89,10 @@ const SignInForm = () => {
         <div>
             <div>
             <div>
+            {errorStatus && 
+            <div>
+              <p>Impossible de créer l'utilisateur</p>  
+            </div>}
             <input
               type="text"
               name="username"

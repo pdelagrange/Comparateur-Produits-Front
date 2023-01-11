@@ -14,11 +14,14 @@ export const createUser = async (login,password) => {
     return await fetch(
         url+'/create',
         {
+            headers: {
+                'Content-Type': 'application/json'
+            },
             method:'POST',
             body: JSON.stringify({
                 login,
                 password
-            })
+            }),
         });
 }
 
