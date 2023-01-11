@@ -68,7 +68,6 @@ const ProductForm = ({ onClick }) => {
         let empty = false;
         inputsCara.forEach(cara => {
             if ((cara.value && cara.type != "checkbox") || cara.type == "checkbox"){
-                console.log(cara.value)
                 if (cara.type == "checkbox"){
                     caracteristiques.push({
                         id: cara.id,
