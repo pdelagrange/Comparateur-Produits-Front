@@ -16,6 +16,8 @@ const CategoriesList = () => {
     const [categories, setCategories] = useState([]);
     const navigate = useNavigate();
 
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+
     const token = useToken();
     const user = token.getUserConnected();
     //user?.admin
@@ -31,9 +33,15 @@ const CategoriesList = () => {
         navigate(''+id)
     }
 
+    const reload = async () => {
+        await delay(200);
+        location.reload()
+    }
+
     const handleDelete = (e) => {
         console.log(e.target.id);
         category.deleteCategory(e.target.id);
+        reload();
     }
 
     return (
