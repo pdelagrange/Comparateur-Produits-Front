@@ -1,4 +1,5 @@
 import React from 'react';
+import {useToken} from '../Utils/Token'
 
 function Banner(props) {
 
@@ -11,7 +12,7 @@ function Banner(props) {
         <h3 className='mx-4 text-white'>
             {props.section}
         </h3>
-        {user.admin && <a href={props.link} className="add-button me-4">{props.buttonText}</a>}
+        {user?.admin && <a href={props.link} className="add-button me-4">{props.buttonText}</a>}
     </div>
   );
 }
