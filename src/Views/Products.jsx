@@ -29,7 +29,7 @@ const Products = () => {
             <Container>
                 <Row className="text-white">
                     {cat && <h2>{cat.name}</h2>}
-                    {cat.products.map((product) => (
+                    {cat && cat.products.map((product) => (
                             <Col key={product.id} md={4}>
                                 <SimpleProduct image={product.image} name={product.name} id={product.id}/>
                             </Col>
