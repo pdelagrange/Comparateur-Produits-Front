@@ -1,19 +1,10 @@
 import React, { useState } from "react";
-import bcrypt from "bcryptjs-react";
 import { useNavigate } from "react-router-dom";
 import { useToken } from "../Utils/Token";
-import {alreadyConnectedRescriction, alreadyConnectedRestriction} from "../Utils/AdminPageRestriction";
+import { alreadyConnectedRestriction} from "../Utils/AdminPageRestriction";
 import Error from "../Components/Error";
+import {loginUser} from "../Services/Auth.service";
 
-async function loginUser(credentials) {
-  return fetch("http://185.212.226.160/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(credentials),
-  });
-}
 
 export default function Login() {
   alreadyConnectedRestriction();

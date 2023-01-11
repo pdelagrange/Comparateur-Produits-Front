@@ -1,6 +1,9 @@
 import React from "react";
 
-const url = `http://185.212.226.160/users`; 
+
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+const url = `${BASE_URL}/users`;
 
 export const getUsers = async () => {
     return await fetch(url);

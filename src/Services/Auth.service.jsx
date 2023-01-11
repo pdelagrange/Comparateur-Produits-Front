@@ -1,17 +1,16 @@
 import React from "react"
-import bcrypt from "bcryptjs-react";
 
-const url = `http://185.212.226.160/login`; 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
-export const getToken = async (username, password) => {
+const url = `${BASE_URL}`;
 
-    hashedPassword = bcrypt.hashSync(password, 10);
 
-    return await fetch(url, {
-        method: "post",
-        body: {
-            username,
-            hashedPassword
-        }
-    });
-}
+export function loginUser(credentials) {
+    return fetch(url + `/login`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(credentials),
+    })
+};

@@ -1,6 +1,8 @@
 import React from "react";
 
-const url = `http://185.212.226.160/products`; 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+const url = `${BASE_URL}/products`;
 
 export const getProducts = async () => {
     return await fetch(url);
