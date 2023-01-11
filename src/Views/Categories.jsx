@@ -4,7 +4,7 @@ import List from '../Components/CategoriesList';
 
 const Categories = () => {
     return (
-        <div className="bg-light" id='vue'>
+        <div className="bg-secondary" id='vue'>
             <Header />
             <List />
         </div>

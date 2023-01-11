@@ -4,15 +4,10 @@ import { useNavigate } from "react-router-dom";
 //services imports
 import * as categoriy_service from '../Services/Category.Service';
 
-//mui imports
-import Grid from '@mui/material/Grid';
-//import Button from '@mui/material/Button';
-
 //bootstrap imports
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 const CategoriesList = () => {
@@ -30,8 +25,8 @@ const CategoriesList = () => {
             <Container>
                 <Row>
                     {categories.map((item, index) => (
-                        <Col key={item.id} md={6}>
-                            <Card className="my-3 p-3 text-center bg-secondary">
+                        <Col key={item.id} md={4}>
+                            <Card className="my-3 p-3 bg-info text-center text-primary">
                                 <Card.Body>
                                     <Card.Title>{item.name}</Card.Title>
                                 </Card.Body>
