@@ -24,7 +24,6 @@ const CategorieForm = ({ onClick }) => {
           name: cara.value
         })
     });
-    console.log(caracteristiques);
     categorie.createCategory(name,caracteristiques);
     navigate('/category')
 

@@ -1,11 +1,12 @@
 import React from 'react';
-import useToken from '../Utils.jsx/UseToken';
-import {useNavigate, useNavigation} from "react-router-dom";
+import { useToken } from '../Utils/Token';
+import { useNavigate } from "react-router-dom";
 
 
 function Header() {
 
-  const {token} = useToken();
+  const token = useToken();
+  const user = token.getUserConnected();
 
   const navigate = useNavigate();
 
@@ -15,10 +16,9 @@ function Header() {
     <div id='logo'>
         <h1>CardSelector</h1>
     </div>
-    {!token && <a href="/login">Se connecter</a>}
-    {token
-      &&  <a href="category/add">Ajouter Catégorie</a>
-      &&  <a href="/logout" >Se déconnecter</a>}
+    {!user && <a href="/login">Se connecter</a>}
+    {user &&  <a href="/logout" >Se déconnecter</a> }
+  {user?.admin && <p>VOUS ETES ADMIN</p>}
 </header>  );
 }
 

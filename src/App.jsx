@@ -8,12 +8,9 @@ import ProductCreation from './Views/ProductCreation';
 import CategorieCreation from './Views/CategorieCreation';
 import Categories from './Views/Categories'
 
-import useToken from "./Utils.jsx/UseToken";
 import SignInForm from './Components/SignInForm';
 
 function App() {
-    const { token, setToken } = useToken();
-
     function Logout(){
         const navigate = useNavigate();
         sessionStorage.removeItem('token');
@@ -26,7 +23,7 @@ function App() {
     <BrowserRouter>
       <Routes>
           <Route index element={<Home/>} />
-          <Route path='/login' element={<Login setToken={setToken}/>}/>
+          <Route path='/login' element={<Login/>}/>
           <Route path='/logout' element={<Logout/>} />
           <Route path='/category/add' element={<CategorieCreation/>}/>
           <Route path='/product/add' element={<ProductCreation/>}/>
