@@ -69,18 +69,27 @@ const ProductForm = ({ onClick }) => {
         inputsCara.forEach(cara => {
             if ((cara.value && cara.type != "checkbox") || cara.type == "checkbox"){
                 console.log(cara.value)
-                caracteristiques.push({
-                    id: cara.id,
-                    value: cara.value
-                  })
+                if (cara.type == "checkbox"){
+                    caracteristiques.push({
+                        id: cara.id,
+                        value: cara.checked
+                      })
+                }else{
+                    caracteristiques.push({
+                        id: cara.id,
+                        value: cara.value
+                      })
+                }
+
             }else{
                 empty = true;
             }
     
         })
         if (name != "" && price != 0 && description != "" && category && empty == false){
+            console.log(caracteristiques)
             createProduct(name,description,price,category,caracteristiques);
-            navigate('/product/add')
+            //navigate('/product/add')
         }else{
             console.log("erreur");
         }
