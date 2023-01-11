@@ -28,8 +28,8 @@ const SimpleProduct = (props) => {
     return (
         <Card  className="my-3 p-3 text-center bg-info text-primary">
             <div style={{display:"flex"}}>
-            {user?.admin && <Card.Img onClick={handleModify} className="white clickable-img" src='/icons/pencil.svg' />}
-            {user?.admin && <Card.Img onClick={handleDelete} className="white clickable-img" src='/icons/trash.svg'/>}
+            {user?.admin && <Card.Img onClick={handleModify} className="white clickable" src='/icons/pencil.svg' />}
+            {user?.admin && <Card.Img onClick={handleDelete} className="white clickable" src='/icons/trash.svg'/>}
             </div>
                 <a className="text-primary" href={"/products/"+props.id}>
                 <Card.Body style={{display: "flex"}}>
