@@ -10,6 +10,7 @@ import SignInForm from './Components/SignInForm';
 import Products from './Views/Products';
 import ProductDetails from './Views/ProductDetails';
 import {useEffect} from "react";
+import Account from "./Views/Account";
 
 function App() {
     function Logout(){
@@ -26,6 +27,7 @@ function App() {
           <Route index element={<Home/>} />
           <Route path='/login' element={<Login/>}/>
           <Route path='/logout' element={<Logout/>} />
+          <Route path='/account' element={<Account/>}/>
           <Route path='/category/add' element={<CategorieCreation/>}/>
           <Route path='/product/add' element={<ProductCreation/>}/>
           <Route path='/signIn' element={<SignInForm/>}/>
