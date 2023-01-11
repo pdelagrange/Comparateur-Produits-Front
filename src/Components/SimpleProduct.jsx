@@ -7,6 +7,12 @@ const SimpleProduct = (props) => {
 
     const navigate = useNavigate();
 
+    var img='/icons/no-photo.png'
+
+    if(props.image != null){
+        img = props.image; 
+    }
+
     const token = useToken();
     const user = token.getUserConnected();
     //user?.admin
@@ -28,7 +34,7 @@ const SimpleProduct = (props) => {
                 <a className="text-primary" href={"/products/"+props.id}>
                 <Card.Body style={{display: "flex"}}>
                     <div>
-                    <Card.Img src={props.image}></Card.Img>
+                    <Card.Img className="image" src={img}></Card.Img>
                     </div>
                     <div>
                     <Card.Title className="product-title-simple">{props.name}</Card.Title>

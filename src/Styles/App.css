@@ -28,11 +28,21 @@
   color: white;
 }
 
+.image{
+  height: 25vh;
+  width: 12vw;
+}
+
+.add-button{
+  color: #ECECEC;
+  font-size: 1em;
+}
+
 a{
   text-decoration: none;
 }
 
-.clickable-img:hover{
+.clickable:hover{
   cursor: pointer;
 }
 
