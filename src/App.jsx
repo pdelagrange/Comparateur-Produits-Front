@@ -1,4 +1,4 @@
-
+import './../src/Styles/App.scss';
 import './../src/Styles/App.css';
 import {BrowserRouter, Routes, Route, useNavigate} from "react-router-dom";
 import Login from './Views/Login';
@@ -30,8 +30,8 @@ function App() {
           <Route path='/product/add' element={<ProductCreation/>}/>
           <Route path='/signIn' element={<SignInForm/>}/>
           <Route path='/category' element={<Categories/>}/>
-          <Route path='/products' element={<Products/>}/>
           <Route path='/products/:id' element={<ProductDetails/>}/>
+          <Route path='/category/:id' element={<Products/>}/>
       </Routes>
     </BrowserRouter>
   );
