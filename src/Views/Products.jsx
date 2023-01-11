@@ -5,6 +5,7 @@ import Header from "../Components/Header";
 import { useParams } from "react-router-dom";
 import * as category from "../Services/Category.Service";
 import Banner from "../Components/Banner";
+import {BufferToUri} from "../Utils/Utils";
 
 const Products = () => {
 
@@ -29,7 +30,7 @@ const Products = () => {
                 <Row className="text-white">
                     {cat && cat.products.map((product) => (
                             <Col key={product.id} md={4}>
-                                <SimpleProduct image={product.image} name={product.name} id={product.id}/>
+                                <SimpleProduct image={BufferToUri(product.image.data)} name={product.name} id={product.id}/>
                             </Col>
                         ))}
                     
