@@ -89,7 +89,7 @@ const ProductForm = ({ onClick }) => {
         if (name != "" && price != 0 && description != "" && category && empty == false){
             console.log(caracteristiques)
             createProduct(name,description,price,category,caracteristiques);
-            //navigate('/product/add')
+            navigate('/product/add')
         }else{
             console.log("erreur");
         }
