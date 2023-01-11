@@ -80,14 +80,12 @@ const ProductForm = ({ onClick }) => {
                         value: cara.value
                       })
                 }
-
             }else{
                 empty = true;
             }
     
         })
         if (name != "" && price != 0 && description != "" && category && empty == false){
-            console.log(caracteristiques)
             createProduct(name,description,price,category,caracteristiques);
             navigate('/product/add')
         }else{
