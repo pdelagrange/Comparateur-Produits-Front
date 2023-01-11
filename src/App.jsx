@@ -14,10 +14,10 @@ function App() {
     function Logout(){
         const navigate = useNavigate();
         sessionStorage.removeItem('token');
-        useEffect(() =>{
+        useEffect(() => {
             navigate('/');
-        })
-    }
+        });
+  }
 
   return (
     <BrowserRouter>
@@ -27,12 +27,14 @@ function App() {
           <Route path='/logout' element={<Logout/>} />
           <Route path='/category/add' element={<CategorieCreation/>}/>
           <Route path='/product/add' element={<ProductCreation/>}/>
+          <Route path='/products/:id' element={<ProductDetails/>}/>
           <Route path='/signIn' element={<SignInForm/>}/>
           <Route path='/category' element={<Categories/>}/>
           <Route path='/products' element={<Products/>}/>
       </Routes>
     </BrowserRouter>
   );
+
 }
 
 export default App;
