@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Select from 'react-select';
 import { getCategories } from '../Services/Category.Service';
 import { getCategoryCharacteristics } from '../Services/Category.Service';
+import { createProduct } from '../Services/Product.Service';
 
 const ProductForm = ({ onClick }) => {
     
@@ -14,6 +15,11 @@ const ProductForm = ({ onClick }) => {
     const [selectedFile, setSelectedFile] = useState()
     const [preview, setPreview] = useState()
     const [cars, setCars] = useState();
+    const [name, setName] = useState("");
+    const [price, setPrice] = useState(0);
+    const [description, setDescription] = useState("");
+    const [category, setCategory] = useState();
+    const [caracteristiques, setCaracteristiques] = useState("");
   
     
     useEffect(() => {
@@ -59,24 +65,50 @@ const ProductForm = ({ onClick }) => {
         });
     }
 
+    const createProduct = () => {
+        let caracteristiques = [];
+        let inputsCara = document.querySelectorAll("input.caracteristiqueValue");
+        let empty = false;
+        inputsCara.forEach(cara => {
+            if (cara.value){
+                caracteristiques.push({
+                    id: cara.id,
+                    value: cara.value
+                  })
+            }else{
+                empty = true;
+            }
+    
+        });
+        if (name, price, description, category, !empty){
+            createProduct(name,description,price,category,caracteristiques);
+            navigate('/product/add')
+        }else{
+            console.log("erreur");
+        }
+        
+    
+        
+      }
+
     
     return (
         <div id="form-wrapper">
-            <form action='' method='post'>
+            <form>
                 <section className="layout">
                     <div>
                         <span id="elem-wrapper">
                             <label>Nom :</label> <br/>
-                            <input type="text" required />
+                            <input type="text" required onChange={(e) => setName(e.target.value)}/>
                         </span><br/><br/>
                         <span id="elem-wrapper">
                         <label>Prix :</label><br/>  
-                            <input required type="text" name="prix" placeholder=" €"/>
+                            <input required type="number" name="prix" onChange={(e) => setPrice(e.target.value)} placeholder=" €"/>
                         </span><br/><br/>
 
                         <span id="elem-wrapper">
                             <label>Description :</label> <br/>
-                            <input required type="text" name="description" />
+                            <input required type="text" name="description" onChange={(e) => setDescription(e.target.value)}/>
                         </span><br/><br/>
                             
                         <span id="elem-wrapper">
@@ -94,7 +126,7 @@ const ProductForm = ({ onClick }) => {
                         <br/>
                         <div id="caracteristiques">
                         {cars != null && Array.from(cars).map((c, index) => {
-                            return <div><label>{c.name} : </label><br/><input id={c.id} type="text"></input><br/></div> ;
+                            return <div><label>{c.name} : </label><br/><input className='caracteristiqueValue' id={c.id} type={c.type}></input><br/></div> ;
                         })}
                         </div>
                         <br/>
