@@ -7,7 +7,7 @@ export const getCategories = async () => {
 }
 
 export const getCategory = async(id) => {
-    return await fetch( url + `?${id}`);
+    return await fetch( url + `/${id}`);
 }
 
 export const createCategory = async (name, characteristics) => {
@@ -28,7 +28,7 @@ export const createCategory = async (name, characteristics) => {
 
 export const deleteCategory = async (id) => {
     return await fetch(
-         url + `?${id}`,
+         url + `/${id}`,
         {
             method:'POST',
         });

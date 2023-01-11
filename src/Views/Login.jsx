@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import bcrypt from "bcryptjs-react";
 import { useNavigate } from "react-router-dom";
 import {useToken} from "../Utils/Token";
-import {alreadyConnectedRescriction} from "../Utils/AdminPageRestriction";
+import {alreadyConnectedRestriction} from "../Utils/AdminPageRestriction";
 
 async function loginUser(credentials) {
  return fetch('http://185.212.226.160/login', {
@@ -15,7 +15,7 @@ async function loginUser(credentials) {
 }
 
 export default function Login() {
-  alreadyConnectedRescriction();
+  alreadyConnectedRestriction();
   const [login, setlogin] = useState();
   const [password, setPassword] = useState();
 
@@ -24,15 +24,12 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleSubmit = async e => {
-
+    e.preventDefault();
     const token = useToken();
 
-    const hashedPassword = bcrypt.hashSync(password, 10);
-
-    e.preventDefault();
     loginUser({
       login,
-      password: password
+      password
     }).then((resp) => {
       if(resp.status !== 200) {
         return Promise.reject("ERREUR");
