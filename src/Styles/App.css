@@ -37,6 +37,15 @@
   }
 }
 
+.inputHeight{
+  height: 30px;
+}
+
+.imagePreview{
+  height: 200px;
+  width: auto;
+
+}
 
 body > div #vue{
   min-height: 100vh;
