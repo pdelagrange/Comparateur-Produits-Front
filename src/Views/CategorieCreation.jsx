@@ -1,11 +1,11 @@
 import React from 'react';
 import Header from '../Components/Header';
 import CategorieForm from '../Components/CategorieForm'
-import {useAdminRescriction} from "../Utils/AdminPageRestriction";
+import {useAdminRestriction} from "../Utils/AdminPageRestriction";
 
 
 function CategorieCreation() {
-    useAdminRescriction();
+    useAdminRestriction();
   return (
     <div id='vue'>
       <Header />

@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.product-title-simple{
+  transform: rotate(-90deg);
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -24,6 +28,10 @@
   color: white;
 }
 
+a{
+  text-decoration: none;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -37,7 +45,32 @@
   }
 }
 
+.inputHeight{
+  height: 30px;
+}
+
+.imagePreview{
+  height: 200px;
+  width: auto;
+
+}
 
 body > div #vue{
   min-height: 100vh;
+}
+
+#logo h1>a {
+  color: #FFCA00;
+  text-shadow: #2d2d2d 1px 3px;
+  background-color: #ECECEC;
+  padding: 2px 4px 2px 0px;
+  text-decoration: none;
+}
+
+.white{
+  height: 20px;
+  width: auto;
+  margin-bottom: 5px;
+  margin-right: 6px;
+  filter: invert(96%) sepia(2%) saturate(1282%) hue-rotate(189deg) brightness(116%) contrast(96%);
 }

@@ -1,17 +1,23 @@
 import React from "react";
+import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 const SimpleProduct = (props) => {
 
     console.log(props.name);
 
-    const imgSrc = `url(data:image/jpeg;base64,${props.image})`;
-
     return (
-        <a href={"product/"+props.id}>
-        <div key={props.id}>
-            <p>{props.name}</p>
-            <img src={imgSrc} alt="product_img" />
-        </div>
-        </a>
+        <Link to={"/products/"+props.id}>
+        <Card  className="my-3 p-3 text-center bg-info text-primary">
+                <Card.Body style={{display: "flex"}}>
+                    <div>
+                    <Card.Img src={props.image}></Card.Img>
+                    </div>
+                    <div>
+                    <Card.Title className="product-title-simple">{props.name}</Card.Title>
+                    </div>
+                </Card.Body>
+        </Card>
+        </Link>
     )
 }
 

@@ -1,32 +1,42 @@
 import  React, { useEffect, useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import SimpleProduct from "../Components/SimpleProduct";
-import * as category from "../Services/Category.Service"
+import Header from "../Components/Header";
+import { useParams } from "react-router-dom";
+import * as category from "../Services/Category.Service";
 
 const Products = () => {
     
-    const [categories, setCategories] = useState([]);
+    const [cat, setCategories] = useState();
+
+    const { id } = useParams();
+
+    console.log(id);
 
     useEffect(() => {
-        category.getCategories()
-            .then(response => response.json())
-            .then(data => setCategories(data))
-            .catch(error => console.log(error));
-    }, []);
-
-    console.log(categories);
-    //console.log(categories[0].products[0].name)
+        category.getCategory(id)
+        .then((response)=>response.json())
+        .then((data) => {
+            setCategories(data);
+            console.log('cat',cat);
+        });
+        
+    }, [])
 
     return (
-        <div>
-        <h1>Products</h1>
-        {categories.map((category) => {
-            return <div>
-                <h2>{category.name}</h2>
-                {category.products.map((product) => {
-                return <SimpleProduct image={product.image} name={product.name} id={product.id}/>
-            })}
-            </div>
-        })}
+        <div className="bg-secondary" id="vue">
+            <Header></Header>
+            <Container>
+                <Row className="text-white">
+                    {cat && <h2>{cat.name}</h2>}
+                    {cat && cat.products.map((product) => (
+                            <Col key={product.id} md={4}>
+                                <SimpleProduct image={product.image} name={product.name} id={product.id}/>
+                            </Col>
+                        ))}
+                    
+                </Row>
+            </Container>
         </div>
     )
 }

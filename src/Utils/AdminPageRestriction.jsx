@@ -3,7 +3,7 @@ import { useNavigate} from "react-router-dom";
 import {useEffect} from "react";
 
 
-export function useAdminRescriction(){
+export function useAdminRestriction(){
     const navigate = useNavigate();
     const token = useToken();
     const user = token.getUserConnected();
@@ -15,7 +15,7 @@ export function useAdminRescriction(){
 }
 
 
-export function alreadyConnectedRescriction(){
+export function alreadyConnectedRestriction(){
     const token = useToken();
     const navigate = useNavigate();
     const user = token.getUserConnected();
@@ -25,4 +25,16 @@ export function alreadyConnectedRescriction(){
             navigate('/');
         });
     }
+}
+
+export function needConnectionRestriction(){
+    const token = useToken();
+    const navigate = useNavigate();
+    const user = token.getUserConnected();
+    if(!user) {
+        useEffect(() => {
+            navigate('/login');
+        });
+    }
+
 }
