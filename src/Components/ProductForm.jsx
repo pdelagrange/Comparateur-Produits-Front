@@ -75,12 +75,12 @@ const ProductForm = ({ onClick }) => {
             if ((cara.value && cara.type != "checkbox") || cara.type == "checkbox") {
                 if (cara.type == "checkbox") {
                     caracteristiques.push({
-                        id: cara.id,
+                        characteristicTypeId: cara.id,
                         value: cara.checked
                     })
                 } else {
                     caracteristiques.push({
-                        id: cara.id,
+                        characteristicTypeId: cara.id,
                         value: cara.value
                     })
                 }
@@ -90,8 +90,9 @@ const ProductForm = ({ onClick }) => {
 
         })
         if (name != "" && price != 0 && description != "" && category && empty == false) {
+            console.log('caracteristique', caracteristiques);
             createProduct(name, description, price, category, caracteristiques);
-            navigate('/products');
+            //navigate('/products');
         } else {
             setToggle(true);
         }

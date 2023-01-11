@@ -14,7 +14,10 @@ const Details = (props) => {
                     <br></br>
                     <Card className="bg-info w-auto border-0">
                         <h3>Caractéristiques : </h3>
-                        <Card.Text className="text-white fs-5">{props.char}</Card.Text>
+                        {props.char.map((item, index) => (
+                            <Card.Text key={item.characteristic_value.characteristicTypeId} className="text-white fs-5">{item.name}: {item.characteristic_value.value}</Card.Text>
+                        ))
+                        }
                     </Card>
                 </div>
             </Card.Body>

@@ -5,23 +5,18 @@ import Header from "../Components/Header";
 import { useParams } from "react-router-dom";
 import * as category from "../Services/Category.Service";
 import Banner from "../Components/Banner";
-import { useToken } from "../Utils/Token";
 
 const Products = () => {
-
 
     const [cat, setCategories] = useState();
 
     const { id } = useParams();
-
-    console.log(id);
 
     useEffect(() => {
         category.getCategory(id)
         .then((response)=>response.json())
         .then((data) => {
             setCategories(data);
-            console.log('cat',cat);
         });
         
     }, [])

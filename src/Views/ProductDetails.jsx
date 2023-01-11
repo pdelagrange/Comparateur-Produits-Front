@@ -13,20 +13,19 @@ const ProductDetails = () => {
     // Récupération information produit
     useEffect(() => {
         prodService.getProduct(id).then((response) => response.json())
-            .then((p) => { setProduct(p[id-1]) }) // Sinon on récupère l'ensemble des produits...
+            .then((p) => { console.log('p', p);setProduct(p);})
             .catch(error => console.log(error));
-    }, []); 
-    console.log(product);
+    }, []);
 
     return (
         <div id="vue">
             <Header />
             {
                 product && 
-                <Product name={product.name} price={product.price} img={product.image} /> 
+                <Product name={product.name} price={product.price} img={product.image} />
             }
             {   product && 
-                <Details desc={product.description} char={product.characteristics} />
+                <Details desc={product.description} char={product.characteristic_types} />
             }
         </div>
     )
