@@ -8,6 +8,7 @@ import CategorieCreation from './Views/CategorieCreation';
 import Categories from './Views/Categories'
 import SignInForm from './Components/SignInForm';
 import Products from './Views/Products';
+import {useEffect} from "react";
 
 function App() {
     function Logout(){
