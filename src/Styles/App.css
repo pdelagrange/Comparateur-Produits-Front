@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.product-title-simple{
+  transform: rotate(-90deg);
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -22,6 +26,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+a{
+  text-decoration: none;
 }
 
 .App-link {
