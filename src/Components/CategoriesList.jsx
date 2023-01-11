@@ -12,6 +12,7 @@ import Card from 'react-bootstrap/Card';
 
 const CategoriesList = () => {
     const [categories, setCategories] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         categoriy_service.getCategories()
@@ -20,13 +21,17 @@ const CategoriesList = () => {
             .catch(error => console.log(error));
     }, []);
 
+    function handleClick(id){
+        navigate(''+id)
+    }
+
     return (
         <div>
             <Container>
                 <Row>
                     {categories.map((item, index) => (
                         <Col key={item.id} md={4}>
-                            <Card className="my-3 p-3 bg-info text-center text-primary">
+                            <Card className="my-3 p-3 bg-info text-center text-primary" onClick={() => handleClick(item.id)}>
                                 <Card.Body>
                                     <Card.Title>{item.name}</Card.Title>
                                 </Card.Body>
