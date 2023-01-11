@@ -46,7 +46,7 @@ const ProductForm = ({ onClick }) => {
         setPreview(objectUrl)
 
         return () => URL.revokeObjectURL(objectUrl)
-    }, [selectedFile])
+    }, [selectedFile]);
 
     const onSelectFile = e => {
         if (!e.target.files || e.target.files.length === 0) {
