@@ -1,18 +1,24 @@
 import React from "react";
+import { Card } from "react-bootstrap";
 
 const Details = (props) => {
 
     return (
-        <div>
-            <div id="desc">
-                <h3>Description : </h3>
-                <p>{ props.desc }</p>
-            </div>
-            <div id="char">
-                <h3>Charactéristiques : </h3>
-                <p>{ props.char }</p>
-            </div>
-        </div>
+        <Card className="m-3 p-b-3 text bg-info text-white">
+            <Card.Body style={{display: "flex"}}>
+                <div>
+                    <Card className="bg-info text-white m-b-2 fs-4 border-0">
+                        <h3>Description : </h3>
+                        <Card.Text className="text-white fs-5">{props.desc}</Card.Text>
+                    </Card>
+                    <br></br>
+                    <Card className="bg-info w-auto border-0">
+                        <h3>Caractéristiques : </h3>
+                        <Card.Text className="text-white fs-5">{props.char}</Card.Text>
+                    </Card>
+                </div>
+            </Card.Body>
+        </Card>
     );
 }
 
