@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import bcrypt from "bcryptjs-react";
 import { useNavigate } from "react-router-dom";
 import {useToken} from "../Utils/Token";
-import {alreadyConnectedRescriction} from "../Utils/AdminPageRestriction";
+import {alreadyConnectedRestriction} from "../Utils/AdminPageRestriction";
 
 async function loginUser(credentials) {
  return fetch('http://185.212.226.160/login', {
@@ -15,7 +15,7 @@ async function loginUser(credentials) {
 }
 
 export default function Login() {
-  alreadyConnectedRescriction();
+  alreadyConnectedRestriction();
   const [login, setlogin] = useState();
   const [password, setPassword] = useState();
 
