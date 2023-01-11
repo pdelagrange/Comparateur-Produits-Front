@@ -7,7 +7,7 @@ const Product = (props) => {
     return (
         <div>
             <h2>{ props.name }</h2>
-            <img src="" placeholder="visuel produit"/>
+            <img src={imgSrc} placeholder="visuel produit"/>
             <a href="https://google.com">+ Ajouter un objet à comparer</a>
             <h3>{ props.price } €</h3>
         </div>
