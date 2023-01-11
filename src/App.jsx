@@ -9,6 +9,7 @@ import CategorieCreation from './Views/CategorieCreation';
 import Categories from './Views/Categories'
 
 import SignInForm from './Components/SignInForm';
+import Products from './Views/Products';
 
 function App() {
     function Logout(){
@@ -29,6 +30,7 @@ function App() {
           <Route path='/product/add' element={<ProductCreation/>}/>
           <Route path='/signIn' element={<SignInForm/>}/>
           <Route path='/category' element={<Categories/>}/>
+          <Route path='/products' element={<Products/>}/>
       </Routes>
     </BrowserRouter>
   );
