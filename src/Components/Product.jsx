@@ -22,7 +22,9 @@ const Product = (props) => {
         <div className="product-card-image">
           <img src={img} alt="Image du produit" />
           <div className="product-description">
-            <div className="product-price bg-primary h4">{product.price} €</div>
+            
+            <a href={product.link} data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="top" title="Site marchand"><div className="product-price bg-primary h4">{product.price} € </div></a>
+            
             <p>
               <span className="h4">Description : </span>
               {product.description}
