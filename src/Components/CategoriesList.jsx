@@ -56,7 +56,7 @@ const CategoriesList = () => {
                                     <div style={{ display: "flex" }}>
                                         {user?.admin && <Card.Img id={item.id} onClick={handleDelete} className="white clickable-img" src='/icons/trash.svg' />}
                                     </div>
-                                    <Card.Title className="fs-2">{item.name}</Card.Title>
+                                    <Card.Title className="fs-3">{item.name}</Card.Title>
                                 </Card.Body>
                             </Card>
                         </Col>
