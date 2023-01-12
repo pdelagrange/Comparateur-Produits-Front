@@ -104,7 +104,11 @@ a:hover {
 }
 
 .card{
-  min-height: 237px;
+  min-height: 250px;
+}
+
+.card:hover{
+  background-color: #5c5c5c !important;
 }
 
 div .product-card {
