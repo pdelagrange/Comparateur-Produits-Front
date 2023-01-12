@@ -56,7 +56,7 @@ export default function Login() {
           <span id="elem-wrapper" className="pt-4 w-100 d-flex justify-content-center">
             <input
               placeholder="Identifiant"
-              className="bg-info mt-1 text-primary border-0 rounded inputHeight w-50 fs-3"
+              className="bg-info mt-1 text-primary border-0 rounded inputHeight w-50 fs-4 login-input"
               type="text"
               onChange={(e) => setlogin(e.target.value)}
             />
@@ -64,13 +64,13 @@ export default function Login() {
           <span id="elem-wrapper" className="pt-4 w-100 d-flex justify-content-center">
             <input
               placeholder="Mot de passe"
-              className="bg-info mt-1 text-primary border-0 rounded inputHeight w-50 fs-3"
+              className="bg-info mt-1 text-primary border-0 rounded inputHeight w-50 fs-4 login-input"
               type="password"
               onChange={(e) => setPassword(e.target.value)}
             />
           </span>
           <div className="pt-5">
-            <button className="btn btn-primary fs-3" type="submit">Se connecter</button>
+            <button className="btn btn-primary fs-3 login-input" type="submit">Se connecter</button>
           </div>
           <div className="pt-2 fs-4">
             <a href="/signIn" className="text-primary">S'inscrire</a>
