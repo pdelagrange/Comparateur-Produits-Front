@@ -109,6 +109,7 @@ body > div #vue{
   width: 150px;
   background-color: #FFCA00;
 }
+
 a:hover {
   cursor: pointer;
 }
@@ -119,6 +120,36 @@ a:hover {
 
 .card:hover{
   background-color: #5c5c5c !important;
+}
+
+@media only screen and (max-width: 630px) {
+  .header > .large{
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 630px) {
+  .header > .small{
+    display: none;
+  }
+
+  #burger-menu{
+    display: none !important;
+  }
+
+  .header img{
+    height: 30px;
+  }
+}
+
+
+#burger-menu {
+  display: none;
+  top: 50px;
+  height: 100px;
+  left: 0;
+  width: 100vw;
+  z-index: 100;
 }
 
 div .product-card {
