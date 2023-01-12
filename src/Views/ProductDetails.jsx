@@ -7,17 +7,19 @@ import { useParams } from "react-router-dom";
 import * as prodService from "./../Services/Product.Service";
 import * as category from "./../Services/Product.Service";
 
+import { Tabs, Tab } from 'react-bootstrap';
+
+
 const ProductDetails = () => {
-    
+
     const [product, setProduct] = useState();
-    const [productsToCompare, setProductsToCompare] = useState([]);  
-    const {id} = useParams();
+    const [productsToCompare, setProductsToCompare] = useState([]);
+    const { id } = useParams();
     const [comparator, setComparator] = useState();
     const [options, setOptions] = useState([""]);
-    const tab = [];
 
 
-    
+
     // Récupération information produit
     useEffect(() => {
 
@@ -31,7 +33,7 @@ const ProductDetails = () => {
                         .then((res) => {
                             console.log(res);
                             res.map((product) => {
-                                return arr.push({ value: product.id, label: product.name});
+                                return arr.push({ value: product.id, label: product.name });
                             });
                             setOptions(arr);
                         });
@@ -39,8 +41,8 @@ const ProductDetails = () => {
                 getData();
             })
             .catch(error => console.log(error));
-    }, 
-    []);
+    },
+        []);
 
     const handleClick = (e) => {
         setComparator(true);
@@ -48,20 +50,28 @@ const ProductDetails = () => {
 
     const chooseCompare = (e) => {
         setComparator(false);
-        console.log(e.value);
         prodService.getProduct(e.value)
-        .then(response => response.json())
-        .then(data => {
-            tab.push(data);
-            const proTab = tab;
-            proTab.push(data);
-            setProductsToCompare(proTab);
-            console.log(productsToCompare)
+            .then(response => response.json())
+            .then(data => {
 
-        });
+                let inside = false;
+                productsToCompare.forEach(prod =>{
+                    if(data.id == prod.id){
+                        inside = true;
+                    }
+                })
+
+                if(inside){
+                    console.log("already in comparator")
+                }
+                else{
+                    setProductsToCompare(productsToCompare.concat(data));
+                }
+                
+            });
     }
 
-    console.log(productsToCompare);
+    console.log("final", productsToCompare);
 
     return (
         <div id="vue">
@@ -70,17 +80,27 @@ const ProductDetails = () => {
             {
                 comparator &&
                 <div>
-                    <Select placeholder="Select an individual" options={options} onChange={chooseCompare}/>
+                    <Select placeholder="Select an individual" options={options} onChange={chooseCompare} />
                 </div>
             }
             {
-                productsToCompare.map((Aproduct) => {
-                    return <Product product={Aproduct} /> 
-                })
-            }
-            {
-                product && 
-                <Product product={product} />
+                product &&
+                <Tabs defaultActiveKey={"#" +product.id}>
+                    <Tab eventKey={product.id} title={product.name}>
+                        <Product product={product} />
+                    </Tab>
+                        
+                    {
+                        productsToCompare.map((Aproduct) => {
+                            return (
+                                <Tab eventKey={Aproduct.id} title={Aproduct.name}>
+                                    <Product product={Aproduct} />
+                                </Tab>
+                            )
+                        })
+                    }
+
+                </Tabs >
             }
         </div>
     )
