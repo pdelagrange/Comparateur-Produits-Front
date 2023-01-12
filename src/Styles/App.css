@@ -26,6 +26,8 @@
 
 .image{
   margin: 1;
+  max-height: 150px;
+  width: auto;
 }
 
 .add-button{
@@ -99,7 +101,7 @@ a:hover {
 }
 
 .card{
-  min-height: 237px;
+  height: 250px;
 }
 
 .card:hover{
