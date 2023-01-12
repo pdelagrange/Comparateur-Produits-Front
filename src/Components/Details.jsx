@@ -1,7 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import Gauge from "./Gauge.jsx";
-import StatusIcons from "./StatusIcons.jsx";
 
 const Details = (props) => {
 
@@ -16,7 +15,7 @@ const Details = (props) => {
                         <h3>Caractéristiques</h3>
                         {
                             props.char.map((item, index) => (
-                                <Card.Text key={item.characteristic_value.characteristicTypeId} className="text-white text-capitalize fs-5">{item.name}: {item.characteristic_value.value} <Gauge></Gauge></Card.Text>
+                                <Card.Text key={item.characteristic_value.characteristicTypeId} className="text-white text-capitalize fs-5">{item.name}: {item.characteristic_value.value} <Gauge value={item.characteristic_value.value}></Gauge></Card.Text>
                             ))
                         }
                     </Card>   
