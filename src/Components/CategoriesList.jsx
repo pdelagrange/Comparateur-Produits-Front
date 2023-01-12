@@ -33,6 +33,10 @@ const CategoriesList = () => {
         navigate('' + id)
     }
 
+    const handleModify = (id) => {
+        navigate('/category/modify/'+id)
+    }
+
     const reload = async () => {
         await delay(500);
         window.location.reload();
@@ -53,6 +57,7 @@ const CategoriesList = () => {
                             <Card className="my-3 p-5 bg-info text-center text-primary clickable card">
                             <div style={{ display: "flex" }}>
                                         {user?.admin && <Card.Img id={item.id} onClick={handleDelete} className="white clickable-img" src='/icons/trash.svg' />}
+                                        {user?.admin && <Card.Img onClick={() => handleModify(item.id)} className="white clickable" src='/icons/pencil.svg' />}
                             </div>
                                 <Card.Body className="d-flex justify-content-center align-items-center" onClick={() => handleClick(item.id)}>
                                     <Card.Title className="fs-2">{item.name}</Card.Title>
