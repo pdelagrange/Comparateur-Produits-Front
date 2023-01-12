@@ -23,6 +23,8 @@ const ProductForm = ({ onClick }) => {
     const [base64, setBase64] = useState("");
     const navigate = useNavigate();
 
+    const delay = ms => new Promise(res => setTimeout(res, ms));
+
     useEffect(() => {
         const getData = async () => {
             const arr = [];
@@ -65,13 +67,19 @@ const ProductForm = ({ onClick }) => {
             });
     }
 
+    const reload = async () => {
+        await delay(200);
+        console.log(category);
+        navigate('/category/'+category);
+    }
+
     function getBase64(file,caracteristiques) {
         var reader = new FileReader();
         reader.readAsDataURL(file);
         console.log('a')
         reader.onload = function () {
             createProduct(name, description, price, category, caracteristiques,link, reader.result);
-            navigate('/category/'+category);
+            reload();
         };
         reader.onerror = function (error) {
             return error;
