@@ -4,14 +4,21 @@ import { BufferToUri } from "../Utils/Utils";
 import Details from "./Details";
 
 const Product = (props) => {
+
+  const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+  const url = `${BASE_URL}`;
+
   const product = props.product;
 
-  let img;
+  /*
   if (!product.image) {
     img = "/icons/no-photo.png";
   } else {
     img = BufferToUri(product.image.data);
-  }
+  }*/
+
+  const imgSrc = `${url+"/products/"+product.id+"/image"}`
 
   return (
     <div>
@@ -20,7 +27,7 @@ const Product = (props) => {
           <h4 className="product-title text-primary">{product.name}</h4>
         </div>
         <div className="product-card-image">
-          <img src={img} alt="Image du produit" />
+          <img src={imgSrc} alt="Image du produit" />
           <div className="product-description">
             <div className="product-price bg-primary h4">{product.price} €</div>
             <p>
