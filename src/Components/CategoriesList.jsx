@@ -54,7 +54,6 @@ const CategoriesList = () => {
                             <div style={{ display: "flex" }}>
                                         {user?.admin && <Card.Img id={item.id} onClick={handleDelete} className="white clickable-img" src='/icons/trash.svg' />}
                             </div>
-
                                 <Card.Body className="d-flex justify-content-center align-items-center" onClick={() => handleClick(item.id)}>
                                     <Card.Title className="fs-2">{item.name}</Card.Title>
                                 </Card.Body>

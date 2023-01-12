@@ -110,7 +110,7 @@ const ProductForm = ({ onClick }) => {
     return (
         <div className='container'>
             <div className='row '>
-                <div className='col-6 pe-5 border-end border-primary'>
+                <div className='mediaQuery col-md pe-5 border-end border-primary noDisplay'>
                     <div className='me-3'>
                         {toggle && (<Error message="Un champs ou plusieurs sont vide" />)}
                         <span id="elem-wrapper">
@@ -139,8 +139,8 @@ const ProductForm = ({ onClick }) => {
                         </span>
                     </div>
                 </div>
-                <div className='col-6' >
-                    <div className='ms-4 ps-4'>
+                <div className='col-md mediaQuery' >
+                    <div className='subMediaQuery ms-4 ps-4'>
                         <span id="elem-wrapper">
                             <label htmlFor="category" className='text-white h2'>Catégorie  :</label>
                             <div className='pb-4 border-bottom border-primary'>

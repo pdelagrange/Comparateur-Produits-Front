@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+
+html,#root{
+  min-width: 320px
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -109,6 +113,7 @@ body > div #vue{
   width: 150px;
   background-color: #FFCA00;
 }
+
 a:hover {
   cursor: pointer;
 }
@@ -119,6 +124,36 @@ a:hover {
 
 .card:hover{
   background-color: #5c5c5c !important;
+}
+
+@media only screen and (max-width: 666px) {
+  .header > .large{
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 666px) {
+  .header > .small{
+    display: none;
+  }
+
+  #burger-menu{
+    display: none !important;
+  }
+
+  .header img{
+    height: 30px;
+  }
+}
+
+
+#burger-menu {
+  display: none;
+  top: 50px;
+  height: 100px;
+  left: 0;
+  width: 100vw;
+  z-index: 100;
 }
 
 div .product-card {
@@ -155,6 +190,59 @@ div .product-description{
   width: 80%;
 }
 
+
+div .cara.cara-check{
+  display:  flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+div .cara-number{
+  border-radius: 10px;
+  padding: 10px ;
+  min-height: 80px;
+}
+div .cara {
+  border-radius: 10px;
+  padding: 10px ;
+  min-height: 80px;
+  display:  flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+div .caras {
+  padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 2fr 100px;
+    grid-column-gap: 20px;
+    grid-row-gap: 13px;
+    justify-items: stretch;
+    align-items: center;
+}
+
+div .cara-number{
+  padding: 10px;
+}
+
+div .cara h4, div .cara p {
+  vertical-align: middle;
+  margin-bottom: 1px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+div .cara-check img{
+  width: 40px;
+}
+
+.progress-bar-striped{
+  color: #282c34; 
+}
+
 @media only screen and (max-width: 700px) {
   div .product-card-image{
     flex-direction: column;
@@ -165,5 +253,31 @@ div .product-description{
   div .product-card-image img{
     width: 100%;
   }
+
+  div .caras {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media only screen and (max-width: 767px) {
+  .mediaQuery {
+     padding-right: 3rem !important;
+  }
+  .subMediaQuery{
+    padding-left: 0rem !important;
+    margin-left: 0rem !important;
+    padding-right: 1rem !important ;
+    margin-top: 3rem !important;
+  }
+
+  .noDisplay{
+    border-color: #2D2D2D !important;
+  }
+
+}
+
+.login-input{
+  min-width: 150px;
 
 }
