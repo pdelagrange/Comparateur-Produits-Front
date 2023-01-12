@@ -106,3 +106,7 @@ a:hover {
 .card{
   min-height: 237px;
 }
+
+.card:hover{
+  background-color: #5c5c5c !important;
+}
