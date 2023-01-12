@@ -28,6 +28,20 @@ export const createCategory = async (name, characteristics) => {
         });
 }
 
+export const modifyCategory = async (id, name) => {
+    return await fetch(url+`/${id}`,
+        {  
+            method:'PUT', 
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: 
+            JSON.stringify({
+                name
+            }),
+        });
+}
+
 export const deleteCategory = async (id) => {
     return await fetch(
         url + `/delete`,

@@ -6,6 +6,7 @@ import Home from './Views/Home';
 import ProductCreation from './Views/ProductCreation';
 import CategorieCreation from './Views/CategorieCreation';
 import Categories from './Views/Categories'
+import CategoryModication from './Views/CategoryModification'
 import SignIn from './Views/SignIn';
 import Products from './Views/Products';
 import ProductDetails from './Views/ProductDetails';
@@ -30,6 +31,7 @@ function App() {
           <Route path='/logout' element={<Logout/>} />
           <Route path='/account' element={<Account/>}/>
           <Route path='/category/add' element={<CategorieCreation/>}/>
+          <Route path='/category/modify/:id' element={<CategoryModication/>}/>
           <Route path='/product/add' element={<ProductCreation/>}/>
           <Route path='/signIn' element={<SignIn/>}/>
           <Route path='/category' element={<Categories/>}/>
