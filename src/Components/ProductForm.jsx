@@ -73,7 +73,7 @@ const ProductForm = ({ onClick }) => {
         navigate('/category/'+category);
     }
 
-    function getBase64(file,caracteristiques) {
+    function getBase64(file, caracteristiques) {
         var reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onload = function () {
@@ -87,7 +87,7 @@ const ProductForm = ({ onClick }) => {
         reader.onerror = function (error) {
             return error;
         };
-     }
+    }
 
     function handleClick(e) {
         e.preventDefault();
@@ -112,7 +112,7 @@ const ProductForm = ({ onClick }) => {
             }
         })
         if (name != "" && price != 0 && description != "" && category && empty == false && link != "" && selectedFile) {
-            getBase64(selectedFile,caracteristiques);  
+            getBase64(selectedFile, caracteristiques);
         } else {
             setToggle(true);
         }
@@ -141,7 +141,14 @@ const ProductForm = ({ onClick }) => {
 
                         <span id="elem-wrapper">
                             <label className='text-white h2'>Lien marchand :</label> <br />
-                            <input className='bg-info mt-1 text-primary border-0 rounded w-100' type="url" name="link" onChange={(e) => setLink(e.target.value)} />
+                            <input className='bg-info mt-1 text-primary border-0 rounded w-100' type="url" name="link" onChange={(e) => {
+                                let link = e.target.value
+                                if (!link.includes('https://')) {
+                                    link = 'https://' + link;
+                                }
+                                setLink(link)
+                            }}
+                            />
                         </span><br /><br />
 
                         <span id="elem-wrapper">
@@ -166,7 +173,7 @@ const ProductForm = ({ onClick }) => {
                                 return <div key={index}><label className='text-white h2'>{c.name} : </label><br /><input className='caracteristiqueValue bg-info mt-1 text-primary border-0 rounded w-100 inputHeight mb-2' id={c.id} type={c.type}></input><br /></div>;
                             })}
                         </div>
-                        <br/>
+                        <br />
                         <button className='btn btn-primary mb-3' type="submit" onClick={handleClick}>
                             Valider
                         </button>
