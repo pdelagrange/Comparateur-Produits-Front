@@ -1,18 +1,22 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import * as product from '../Services/Product.Service'
+import * as productService from '../Services/Product.Service'
 import { useToken } from "../Utils/Token";
+import {BufferToUri} from "../Utils/Utils";
 const SimpleProduct = (props) => {
 
     const navigate = useNavigate();
 
     const delay = ms => new Promise(res => setTimeout(res, ms));
 
-    var img='/icons/no-photo.png'
+    const product = props.product;
 
-    if(props.image != null){
-        img = props.image; 
+    let img;
+    if(!product.image){
+         img = '/icons/no-photo.png';
+    } else {
+         img = BufferToUri(product.image.data);
     }
 
     const token = useToken();
@@ -29,7 +33,7 @@ const SimpleProduct = (props) => {
     }
 
     const handleDelete = (e) => {
-        product.deleteProduct(props.id);
+        productService.deleteProduct(product.id);
         reload();
     }
 
@@ -39,13 +43,13 @@ const SimpleProduct = (props) => {
             {user?.admin && <Card.Img onClick={handleModify} className="white clickable" src='/icons/pencil.svg' />}
             {user?.admin && <Card.Img onClick={handleDelete} className="white clickable" src='/icons/trash.svg'/>}
             </div>
-                <a className="text-primary" href={"/products/"+props.id}>
+                <a className="text-primary" href={"/products/"+product.id}>
                 <Card.Body style={{display: "flex"}}>
                     <div>
                     <Card.Img className="image" src={img}></Card.Img>
                     </div>
                     <div>
-                    <Card.Title className="product-title-simple">{props.name}</Card.Title>
+                    <Card.Title className="product-title-simple">{product.name}</Card.Title>
                     </div>
                 </Card.Body>
                 </a>
