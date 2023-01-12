@@ -102,3 +102,7 @@ body > div #vue{
 a:hover {
   cursor: pointer;
 }
+
+.card{
+  min-height: 237px;
+}
