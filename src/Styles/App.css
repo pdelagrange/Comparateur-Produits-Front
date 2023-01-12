@@ -198,3 +198,20 @@ div .product-description{
   }
 
 }
+
+@media only screen and (max-width: 767px) {
+  .mediaQuery {
+     padding-right: 3rem !important;
+  }
+  .subMediaQuery{
+    padding-left: 0rem !important;
+    margin-left: 0rem !important;
+    padding-right: 1rem !important ;
+    margin-top: 3rem !important;
+  }
+
+  .noDisplay{
+    border-color: #2D2D2D !important;
+  }
+
+}
