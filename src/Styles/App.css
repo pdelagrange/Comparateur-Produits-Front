@@ -174,6 +174,7 @@ div .product-card-image{
 }
 div .product-card-image img{
 width: 50%;
+margin-right: 15px;
 }
 
 div .product-price {
@@ -184,6 +185,7 @@ div .product-price {
   min-width: fit-content;
   max-width: 200px;
   text-align: center;
+  color: #282c34;
 }
 
 div .product-description{
@@ -237,6 +239,7 @@ div .cara h4, div .cara p {
 
 div .cara-check img{
   width: 40px;
+
 }
 
 .progress-bar-striped{
@@ -281,3 +284,4 @@ div .cara-check img{
   min-width: 150px;
 
 }
+
