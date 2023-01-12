@@ -11,6 +11,7 @@ import Products from './Views/Products';
 import ProductDetails from './Views/ProductDetails';
 import {useEffect} from "react";
 import Account from "./Views/Account";
+import ProductCompare from './Views/ProductCompare';
 
 function App() {
     function Logout(){
@@ -34,11 +35,12 @@ function App() {
           <Route path='/category' element={<Categories/>}/>
           <Route path='/products/:id' element={<ProductDetails/>}/>
           <Route path='/category/:id' element={<Products/>}/>
-          <Route path='/products/:id/compare' element={<ProductCompare/>}/>
+          <Route path='/products/compare/:id' element={<ProductCompare/>}/>
       </Routes>
     </BrowserRouter>
   );
 
 }
+
 
 export default App;
