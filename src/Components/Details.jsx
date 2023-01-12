@@ -1,23 +1,47 @@
 import React from "react";
-import { Card } from "react-bootstrap";
-import Gauge from "./Gauge.jsx";
+import { Card, ProgressBar } from "react-bootstrap";
 
 const Details = (props) => {
+  let img;
+  return (
+    <div className="caras">
+      {props.char.map((cara, i) => {
 
-    return (
-        <Card className="m-3 mt-0 p-b-3 text bg-info text-white">
-            <Card.Body className= "row" style={{display: "flex"}}>
-                    <Card className="text-uppercase bg-info border-0 p-2 w-100 m-2">
-                        <h3>Caractéristiques</h3>
-                        {
-                            props.char.map((item, index) => (
-                                <Card.Text key={item.characteristic_value.characteristicTypeId} className="text-white text-capitalize fs-5">{item.name}: {item.characteristic_value.value} <Gauge value={item.characteristic_value.value}></Gauge></Card.Text>
-                            ))
-                        }
-                    </Card>   
-            </Card.Body>
-        </Card>
-    );
-}
+        if (cara.type == "text") {
+          return (
+            <div className="cara bg-secondary">
+              <h4 className="text-white">{cara.name}</h4>
+              <p className="text-primary">{cara.characteristic_value.value}</p>
+            </div>
+          );
+        } else if (cara.type == "checkbox") {
+          if (cara.characteristic_value.value == "Oui") {
+            img = "/icons/check.svg";
+          } else {
+            img = "/icons/cross.svg";
+          }
+          return (
+            <div className="cara cara-check bg-secondary">
+              <h4 className="text-white">{cara.name}</h4>
+              <img src={img} alt="" />
+            </div>
+          );
+        } else if (cara.type == "number") {
+          return (
+            <div className="cara-number bg-secondary">
+              <h4 className="text-white">{cara.name}</h4>
+              <ProgressBar
+                striped
+                variant="primary"
+                label={cara.characteristic_value.value}
+                now={cara.characteristic_value.value}
+              />
+            </div>
+          );
+        }
+      })}
+    </div>
+  );
+};
 
 export default Details;

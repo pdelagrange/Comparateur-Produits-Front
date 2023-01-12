@@ -25,10 +25,6 @@ const ProductDetails = () => {
                 product && 
                 <Product product={product} />
             }
-            {   
-                product && 
-                <Details desc={product.description} char={product.characteristic_types} />
-            }
         </div>
     )
 }
