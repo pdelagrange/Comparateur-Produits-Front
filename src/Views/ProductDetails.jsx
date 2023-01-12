@@ -25,7 +25,8 @@ const ProductDetails = () => {
                 product && 
                 <Product name={product.name} price={product.price} img={product.image} />
             }
-            {   product && 
+            {   
+                product && 
                 <Details desc={product.description} char={product.characteristic_types} />
             }
         </div>
