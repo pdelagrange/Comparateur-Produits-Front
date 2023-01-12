@@ -35,7 +35,7 @@ const CategoriesList = () => {
 
     const reload = async () => {
         await delay(200);
-        location.reload()
+        window.location.reload()
     }
 
     const handleDelete = (e) => {
