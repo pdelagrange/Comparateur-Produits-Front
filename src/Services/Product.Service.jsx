@@ -8,6 +8,10 @@ export const getProducts = async () => {
     return await fetch(url);
 }
 
+export const getLatests = async () => {
+    return await fetch(url+"/latests");
+}
+
 export const getProduct = async(id) => {
     return await fetch(url + `/${id}`);
 }
