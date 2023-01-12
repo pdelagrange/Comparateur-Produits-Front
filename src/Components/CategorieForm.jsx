@@ -28,10 +28,18 @@ const CategorieForm = () => {
 
   const [name, setName] = useState("");
 
+  const delay = ms => new Promise(res => setTimeout(res, ms));
+
   const handleClick = () => {
     setCounter(counter + 1);
     setInputList(inputList.concat(<Input key={counter} index={counter} />));
   };
+
+  const reload = async () => {
+    await delay(200);
+    console.log(category);
+    navigate('/category');
+}
 
   const createCategorie = () => {
     let error = false;
@@ -55,7 +63,7 @@ const CategorieForm = () => {
       categorie.createCategory(name, caracteristiques);
       navigate("/category");
     } else {
-      setToggle(true);
+      reload();
     }
   };
 
