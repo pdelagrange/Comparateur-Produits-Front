@@ -34,8 +34,8 @@ const CategoriesList = () => {
     }
 
     const reload = async () => {
-        await delay(200);
-        window.location.reload()
+        await delay(500);
+        window.location.reload();
     }
 
     const handleDelete = (e) => {
@@ -51,12 +51,11 @@ const CategoriesList = () => {
                     {categories.map((item, index) => (
                         <Col key={item.id} md={4}>
                             <Card className="my-3 p-5 bg-info text-center text-primary clickable card">
-
-                                <Card.Body className="d-flex justify-content-center align-items-center" onClick={() => handleClick(item.id)}>
-                                    <div style={{ display: "flex" }}>
+                            <div style={{ display: "flex" }}>
                                         {user?.admin && <Card.Img id={item.id} onClick={handleDelete} className="white clickable-img" src='/icons/trash.svg' />}
-                                    </div>
-                                    <Card.Title className="fs-3">{item.name}</Card.Title>
+                            </div>
+                                <Card.Body className="d-flex justify-content-center align-items-center" onClick={() => handleClick(item.id)}>
+                                    <Card.Title className="fs-2">{item.name}</Card.Title>
                                 </Card.Body>
                             </Card>
                         </Col>
