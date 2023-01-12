@@ -2,10 +2,6 @@
   text-align: center;
 }
 
-.product-title-simple{
-  transform: rotate(-90deg);
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -29,8 +25,9 @@
 }
 
 .image{
-  height: 25vh;
-  width: 12vw;
+  margin: 1;
+  max-height: 150px;
+  width: auto;
 }
 
 .add-button{
@@ -104,7 +101,11 @@ a:hover {
 }
 
 .card{
-  min-height: 237px;
+  height: 250px;
+}
+
+.card:hover{
+  background-color: #5c5c5c !important;
 }
 
 div .product-card {
