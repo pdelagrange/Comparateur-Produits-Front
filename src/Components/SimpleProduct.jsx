@@ -48,7 +48,7 @@ const SimpleProduct = (props) => {
                 <a className="text-primary" href={"/products/"+product.id}>
                 <Card.Body>
                     <div>
-                    <Card.Img className="image" src={img}></Card.Img>
+                    <Card.Img className="rounded mx-auto d-block img-fluid image" src={img}></Card.Img>
                     </div>
                     <div>
                     <Card.Title className="mt-2">{product.name}</Card.Title>
