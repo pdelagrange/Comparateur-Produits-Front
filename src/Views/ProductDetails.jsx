@@ -85,7 +85,7 @@ const ProductDetails = () => {
             }
             {
                 product &&
-                <Tabs defaultActiveKey={"#" +product.id}>
+                <Tabs defaultActiveKey={product.id}>
                     <Tab eventKey={product.id} title={product.name}>
                         <Product product={product} />
                     </Tab>
