@@ -19,6 +19,7 @@ const ProductForm = ({ onClick }) => {
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState();
     const [toggle, setToggle] = useState(false);
+    const [toggleSize, setToggleSize] = useState(false);
     const [link, setLink] = useState("");
     const [base64, setBase64] = useState("");
     const navigate = useNavigate();
@@ -69,17 +70,19 @@ const ProductForm = ({ onClick }) => {
 
     const reload = async () => {
         await delay(200);
-        console.log(category);
-        navigate('/category/' + category);
+        navigate('/category/'+category);
     }
 
     function getBase64(file, caracteristiques) {
         var reader = new FileReader();
         reader.readAsDataURL(file);
-        console.log('a')
         reader.onload = function () {
-            createProduct(name, description, price, category, caracteristiques, link, reader.result);
-            reload();
+            if(file.size < 1000000){
+                createProduct(name, description, price, category, caracteristiques,link, reader.result);
+                reload();
+            }else{
+                setToggleSize(true);
+            }
         };
         reader.onerror = function (error) {
             return error;
@@ -121,6 +124,7 @@ const ProductForm = ({ onClick }) => {
                 <div className='mediaQuery col-md pe-5 border-end border-primary noDisplay'>
                     <div className='me-3'>
                         {toggle && (<Error message="Un champs ou plusieurs sont vide" />)}
+                        {toggleSize && (<Error message="Image trop lourde" />)}
                         <span id="elem-wrapper">
                             <label className='text-white h2'>Nom :</label> <br />
                             <input className='bg-info mt-1 text-primary border-0 rounded w-100 inputHeight' type="text" onChange={(e) => setName(e.target.value)} />
