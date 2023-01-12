@@ -2,10 +2,6 @@
   text-align: center;
 }
 
-.product-title-simple{
-  transform: rotate(-90deg);
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -29,8 +25,7 @@
 }
 
 .image{
-  height: 25vh;
-  width: 12vw;
+  margin: 1;
 }
 
 .add-button{

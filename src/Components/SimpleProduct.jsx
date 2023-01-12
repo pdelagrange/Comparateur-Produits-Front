@@ -37,19 +37,21 @@ const SimpleProduct = (props) => {
         reload();
     }
 
+    // modifier produit
+    // {user?.admin && <Card.Img onClick={handleModify} className="white clickable" src='/icons/pencil.svg' />}
+
     return (
-        <Card  className="my-3 p-3 text-center bg-info text-primary">
+        <Card className="my-3 p-3 text-center bg-info text-primary card" variant="bg-primary">
             <div style={{display:"flex"}}>
-            {user?.admin && <Card.Img onClick={handleModify} className="white clickable" src='/icons/pencil.svg' />}
             {user?.admin && <Card.Img onClick={handleDelete} className="white clickable" src='/icons/trash.svg'/>}
             </div>
                 <a className="text-primary" href={"/products/"+product.id}>
-                <Card.Body style={{display: "flex"}}>
+                <Card.Body>
                     <div>
                     <Card.Img className="image" src={img}></Card.Img>
                     </div>
                     <div>
-                    <Card.Title className="product-title-simple">{product.name}</Card.Title>
+                    <Card.Title className="mt-2">{product.name}</Card.Title>
                     </div>
                 </Card.Body>
                 </a>
