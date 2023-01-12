@@ -13,6 +13,19 @@
   }
 }
 
+.title-card{
+  background-color: #FFCA00;
+  margin-top: 16px;
+  text-align: center;
+  height: 93%;
+  width: auto;
+  color: #FAFAFA;
+}
+
+.title-card>h1{
+  margin-top: 30%;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
