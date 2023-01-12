@@ -1,6 +1,11 @@
 import React from 'react';
+<<<<<<< HEAD
 import { ReactComponent as Check } from './../Utils/check.svg';
 import { ReactComponent as Cross } from './../Utils/cross.svg';
+=======
+import { ReactComponent as Check } from './../../public/icons/check.svg';
+import { ReactComponent as Cross } from './../../public/icons/cross.svg';
+>>>>>>> f3d029b (jauge et icones caracteristiques v1)
 
 const StatusIcons = (props) => {
 
@@ -18,6 +23,10 @@ const StatusIcons = (props) => {
         )
     }  
 
+<<<<<<< HEAD
 }
 
 export default StatusIcons;
+=======
+}
+>>>>>>> f3d029b (jauge et icones caracteristiques v1)
