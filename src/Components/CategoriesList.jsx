@@ -29,8 +29,8 @@ const CategoriesList = () => {
             .catch(error => console.log(error));
     }, []);
 
-    function handleClick(id){
-        navigate(''+id)
+    function handleClick(id) {
+        navigate('' + id)
     }
 
     const reload = async () => {
@@ -46,16 +46,17 @@ const CategoriesList = () => {
 
     return (
         <div>
-            <Container>
+            <Container className="mt-5">
                 <Row>
                     {categories.map((item, index) => (
                         <Col key={item.id} md={4}>
-                            <Card className="my-3 p-3 bg-info text-center text-primary clickable">
-                            <div style={{display:"flex"}}>
-                                {user?.admin && <Card.Img id={item.id} onClick={handleDelete} className="white clickable-img" src='/icons/trash.svg'/>}
-                            </div>
-                                <Card.Body onClick={() => handleClick(item.id)}>
-                                    <Card.Title>{item.name}</Card.Title>
+                            <Card className="my-3 p-5 bg-info text-center text-primary clickable card">
+
+                                <Card.Body className="d-flex justify-content-center align-items-center" onClick={() => handleClick(item.id)}>
+                                    <div style={{ display: "flex" }}>
+                                        {user?.admin && <Card.Img id={item.id} onClick={handleDelete} className="white clickable-img" src='/icons/trash.svg' />}
+                                    </div>
+                                    <Card.Title className="fs-2">{item.name}</Card.Title>
                                 </Card.Body>
                             </Card>
                         </Col>
