@@ -144,7 +144,10 @@ const SignInForm = () => {
 
         <div className="pt-5">
             <button onClick={handleClick} className="btn btn-primary fs-3" type="submit">S'inscrire</button>
-          </div>
+        </div>
+        <div className="pt-5">
+            <a href="/login" className="add-button me-4">{"< Retour"}</a>
+        </div>
         </div>
       </div>
     </div>
