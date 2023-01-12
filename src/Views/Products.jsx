@@ -30,7 +30,7 @@ const Products = () => {
                 <Row className="text-white">
                     {cat && cat.products.map((product) => (
                             <Col key={product.id} md={4}>
-                                <SimpleProduct image={BufferToUri(product.image.data)} name={product.name} id={product.id}/>
+                                <SimpleProduct product={product} />
                             </Col>
                         ))}
                     
