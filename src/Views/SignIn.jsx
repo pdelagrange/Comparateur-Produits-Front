@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import * as User from "../Services/User.Service";
-import bcrypt from "bcryptjs-react";
 import { useNavigate } from "react-router-dom";
 import Error from "../Components/Error"
 
@@ -77,9 +76,7 @@ const SignInForm = () => {
       error.confirmPassword === "" &&
       error.password === ""
     ) {
-      //call api
-      const hashedPassword = await bcrypt.hash(input.password, 10);
-      const response = await User.createUser(input.username, hashedPassword);
+      const response = await User.createUser(input.username, input.password);
       if (response.status === 200) {
         navigate("/login");
       } else {
@@ -95,12 +92,12 @@ const SignInForm = () => {
       </div>
       <div className="pt-5 d-flex justify-content-center flex-column align-items-center">
         <h2 className="text-primary fs-1">Inscription</h2>
-        <form onSubmit={handleClick}
-          className="pt-4 d-flex justify-content-center flex-column align-items-center w-50"
+        <div className="pt-4 d-flex justify-content-center flex-column align-items-center w-50"
         >
+          {errorStatus && <Error message={"Erreur lors de la création de l'utilisateur"}/>}
           {error.username && (
             <Error message={error.username} />
-          )}
+          )}  
           {error.password &&  <Error message={error.password}/>}
 
           {error.confirmPassword && (
@@ -146,9 +143,9 @@ const SignInForm = () => {
           </span>
 
         <div className="pt-5">
-            <button className="btn btn-primary fs-3" type="submit">S'inscrire</button>
+            <button onClick={handleClick} className="btn btn-primary fs-3" type="submit">S'inscrire</button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   );
