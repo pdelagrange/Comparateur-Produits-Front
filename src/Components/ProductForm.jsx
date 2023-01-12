@@ -5,6 +5,7 @@ import { getCategoryCharacteristics } from '../Services/Category.Service';
 import { createProduct } from '../Services/Product.Service';
 import { useNavigate } from "react-router-dom";
 import Error from "./Error";
+import { red } from '@mui/material/colors';
 
 
 const ProductForm = ({ onClick }) => {
@@ -17,12 +18,10 @@ const ProductForm = ({ onClick }) => {
     const [price, setPrice] = useState(0);
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState();
-    const [toggle, setToggle] = useState(false)
-    const [customStyles, setCustomStyles] = useState()
-
-
+    const [toggle, setToggle] = useState(false);
+    const [link, setLink] = useState("");
+    const [base64, setBase64] = useState("");
     const navigate = useNavigate();
-
 
     useEffect(() => {
         const getData = async () => {
@@ -66,6 +65,19 @@ const ProductForm = ({ onClick }) => {
             });
     }
 
+    function getBase64(file,caracteristiques) {
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        console.log('a')
+        reader.onload = function () {
+            createProduct(name, description, price, category, caracteristiques,link, reader.result);
+            navigate('/category/'+category);
+        };
+        reader.onerror = function (error) {
+            return error;
+        };
+     }
+
     function handleClick(e) {
         e.preventDefault();
         let caracteristiques = [];
@@ -87,19 +99,13 @@ const ProductForm = ({ onClick }) => {
             } else {
                 empty = true;
             }
-
         })
-        if (name != "" && price != 0 && description != "" && category && empty == false) {
-            console.log('caracteristique', caracteristiques);
-            createProduct(name, description, price, category, caracteristiques);
-            navigate('/products');
+        if (name != "" && price != 0 && description != "" && category && empty == false && link != "" && selectedFile) {
+            getBase64(selectedFile,caracteristiques);  
         } else {
             setToggle(true);
         }
-
-
     }
-
 
     return (
         <div className='container'>
@@ -119,6 +125,11 @@ const ProductForm = ({ onClick }) => {
                         <span id="elem-wrapper">
                             <label className='text-white h2'>Description :</label> <br />
                             <textarea className='bg-info mt-1 text-primary border-0 rounded w-100' rows="3" name="description" onChange={(e) => setDescription(e.target.value)} />
+                        </span><br /><br />
+
+                        <span id="elem-wrapper">
+                            <label className='text-white h2'>Lien marchand :</label> <br />
+                            <input className='bg-info mt-1 text-primary border-0 rounded w-100' type="url" name="link" onChange={(e) => setLink(e.target.value)} />
                         </span><br /><br />
 
                         <span id="elem-wrapper">
