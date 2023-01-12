@@ -26,6 +26,8 @@
 
 .image{
   margin: 1;
+  max-height: 150px;
+  width: auto;
 }
 
 .add-button{
