@@ -42,7 +42,7 @@ export default function Login() {
   return (
     <div id="vue" className="bg-secondary">
       <div id="logo" className="pt-5 d-flex justify-content-center fs-1 ">
-        <h1>CardSelector</h1>
+      <a href="/"><h1>CardSelector</h1></a>
       </div>
       <div className="pt-5 d-flex justify-content-center flex-column align-items-center">
         <h2 className="text-primary fs-1">Connexion</h2>
