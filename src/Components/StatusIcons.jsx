@@ -1,6 +1,6 @@
 import React from 'react';
-import { ReactComponent as Check } from './../../public/icons/check.svg';
-import { ReactComponent as Cross } from './../../public/icons/cross.svg';
+import { ReactComponent as Check } from './../Utils/check.svg';
+import { ReactComponent as Cross } from './../Utils/cross.svg';
 
 const StatusIcons = (props) => {
 
@@ -19,3 +19,5 @@ const StatusIcons = (props) => {
     }  
 
 }
+
+export default StatusIcons;

@@ -9,3 +9,5 @@ const Gauge = (props) => {
     )
 
 }
+
+export default Gauge;
