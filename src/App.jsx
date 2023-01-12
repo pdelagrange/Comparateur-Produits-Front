@@ -34,6 +34,7 @@ function App() {
           <Route path='/category' element={<Categories/>}/>
           <Route path='/products/:id' element={<ProductDetails/>}/>
           <Route path='/category/:id' element={<Products/>}/>
+          <Route path='/products/:id/compare' element={<ProductCompare/>}/>
       </Routes>
     </BrowserRouter>
   );
