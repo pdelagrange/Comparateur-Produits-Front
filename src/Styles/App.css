@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+
+html,#root{
+  min-width: 320px
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -122,13 +126,13 @@ a:hover {
   background-color: #5c5c5c !important;
 }
 
-@media only screen and (max-width: 630px) {
+@media only screen and (max-width: 666px) {
   .header > .large{
     display: none;
   }
 }
 
-@media only screen and (min-width: 630px) {
+@media only screen and (min-width: 666px) {
   .header > .small{
     display: none;
   }
@@ -214,4 +218,8 @@ div .product-description{
     border-color: #2D2D2D !important;
   }
 
+}
+
+.login-input{
+  min-width: 150px;
 }
