@@ -16,6 +16,7 @@ export const getProduct = async(id) => {
     return await fetch(url + `/${id}`);
 }
 
+
 export const createProduct = async (name, description, price, categoryId, characteristics,link,image) => {
     return await fetch(url+`/create`,
         {
