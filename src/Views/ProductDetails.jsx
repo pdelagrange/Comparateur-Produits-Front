@@ -52,8 +52,12 @@ const ProductDetails = () => {
             .then(response => response.json())
             .then(data => {
                 let inside = false;
+                if(data.id == product.id){
+                    inside = true;
+                }
                 productsToCompare.forEach(prod => {
-                    if (data.id == prod.id || product.id == data.id) {
+                    console.log(data.id)
+                    if (data.id == prod.id) {
                         inside = true;
                     }
                 })
