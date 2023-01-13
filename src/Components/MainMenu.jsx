@@ -29,8 +29,8 @@ const MainMenu = () => {
                 <Container>
                     <Row md={3}>
                         <Col>
-                            <Card className='title-card'>
-                                <h1>Ajouts récents</h1>
+                            <Card className='bg-primary text-white title-card justify-content-center'>
+                                <p className='fs-1 text-center'>Ajouts récents</p>
                             </Card>
                         </Col>
                         {latest.map((item, index) => (
