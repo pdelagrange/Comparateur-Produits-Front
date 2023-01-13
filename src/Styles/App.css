@@ -285,3 +285,10 @@ div .cara-check img{
 
 }
 
+.nav-link{
+  color: #2D2D2D !important;
+}
+
+.active{
+  color: #FFCA00 !important;
+}
