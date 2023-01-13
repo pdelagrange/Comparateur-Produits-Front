@@ -69,7 +69,7 @@ const ProductForm = ({ onClick }) => {
     }
 
     const reload = async () => {
-        await delay(200);
+        await delay(500);
         navigate('/category/'+category);
     }
 
