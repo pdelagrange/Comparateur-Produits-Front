@@ -20,8 +20,6 @@ const MainMenu = () => {
 
     }, []);
 
-    console.log(latest);
-
     const token = useToken();
     const user = token.getUserConnected();
 

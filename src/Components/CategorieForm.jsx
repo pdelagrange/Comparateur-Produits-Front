@@ -37,7 +37,6 @@ const CategorieForm = () => {
 
   const reload = async () => {
     await delay(200);
-    console.log(category);
     navigate('/category');
 }
 
@@ -50,7 +49,6 @@ const CategorieForm = () => {
     let inputsCara = document.querySelectorAll("input.caracteristiqueValue");
     let selectCara = document.querySelectorAll("select.caracteristiqueValue");
     inputsCara.forEach((cara, index) => {
-      console.log(cara.value.length > 0);
       if (!cara.value.length > 0) {
         error = true;
       }

@@ -7,7 +7,6 @@ function Account() {
     const token = useToken();
     const user = token.getUserConnected();
 
-    console.log(user)
     return (
         <div className='d-flex flex-column justify-content-center align-items-center'>
             {user && <p className='fs-4 text-white mx-4'>Bienvenue {user.username} !</p>}
