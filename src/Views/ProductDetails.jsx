@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import Select from 'react-select';
 import { useParams } from "react-router-dom";
 import * as prodService from "./../Services/Product.Service";
-import * as category from "./../Services/Product.Service";
+import * as category from "./../Services/Category.Service";
 
 import { Tabs, Tab } from 'react-bootstrap';
 
@@ -19,7 +19,6 @@ const ProductDetails = () => {
     const [options, setOptions] = useState([""]);
 
 
-
     // Récupération information produit
     useEffect(() => {
 
@@ -28,11 +27,10 @@ const ProductDetails = () => {
                 setProduct(p);
                 const getData = async () => {
                     const arr = [];
-                    category.getProducts(p.categoryId)
+                    category.getCategory(p.categoryId)
                         .then(response => response.json())
                         .then((res) => {
-                            console.log(res);
-                            res.map((product) => {
+                            res.products.map((product) => {
                                 return arr.push({ value: product.id, label: product.name });
                             });
                             setOptions(arr);
@@ -53,25 +51,22 @@ const ProductDetails = () => {
         prodService.getProduct(e.value)
             .then(response => response.json())
             .then(data => {
-
                 let inside = false;
-                productsToCompare.forEach(prod =>{
-                    if(data.id == prod.id){
+                productsToCompare.forEach(prod => {
+                    if (data.id == prod.id || product.id == data.id) {
                         inside = true;
                     }
                 })
 
-                if(inside){
+                if (inside) {
                     console.log("already in comparator")
                 }
-                else{
+                else {
                     setProductsToCompare(productsToCompare.concat(data));
                 }
-                
+
             });
     }
-
-    console.log("final", productsToCompare);
 
     return (
         <div id="vue">
@@ -89,7 +84,7 @@ const ProductDetails = () => {
                     <Tab eventKey={product.id} title={product.name}>
                         <Product product={product} />
                     </Tab>
-                        
+
                     {
                         productsToCompare.map((Aproduct) => {
                             return (
