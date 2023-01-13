@@ -36,7 +36,7 @@ const CategorieForm = () => {
   };
 
   const reload = async () => {
-    await delay(200);
+    await delay(500);
     navigate('/category');
 }
 
@@ -59,7 +59,7 @@ const CategorieForm = () => {
     });
     if (!error) {
       categorie.createCategory(name, caracteristiques);
-      navigate("/category");
+      reload();
     } else {
       reload();
     }
@@ -70,8 +70,7 @@ const CategorieForm = () => {
       {toggle && (
         <Error key={counter} message="Un champs ou plusieurs sont vide" />
       )}
-      <form
-        action=""
+      <div
         className="pt-4 d-flex justify-content-center flex-column align-items-center w-50"
       >
         <h2 className="text-primary fs-1">Création catégorie</h2>
@@ -99,7 +98,7 @@ const CategorieForm = () => {
         <button className="btn btn-primary" type="submit" onClick={createCategorie}>
           Valider
         </button>
-      </form>
+      </div>
     </div>
   );
 };
