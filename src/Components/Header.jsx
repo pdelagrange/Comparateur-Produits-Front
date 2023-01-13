@@ -40,6 +40,11 @@ function Header() {
 
       
       <div id='burger-menu' className='bg-secondary position-absolute'>
+        <a className='nav-link align-bottom text-white p-2 ms-3 small' href="/">
+          <img src='/icons/house.svg' className='white'></img>
+          Home
+        </a>
+
         <a className='nav-link align-bottom text-white p-2 ms-3 small' href="/category">
           <img src='/icons/grip.svg' className='white'></img>
           Catégories
