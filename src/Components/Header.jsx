@@ -10,10 +10,7 @@ function Header() {
 
     var height = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
 
-    console.log(height)
-
     burger_menu.style.height = height + 'px';
-    console.log(burger_menu.style.height)
 
     if (burger_menu.style.display == "block")
       burger_menu.style.display = "none";

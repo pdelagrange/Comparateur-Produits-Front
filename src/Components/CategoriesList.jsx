@@ -43,7 +43,6 @@ const CategoriesList = () => {
     }
 
     const handleDelete = (e) => {
-        console.log(e.target.id);
         category.deleteCategory(e.target.id);
         reload();
     }

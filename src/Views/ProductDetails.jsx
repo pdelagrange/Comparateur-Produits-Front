@@ -31,7 +31,6 @@ const ProductDetails = () => {
                     category.getProducts(p.categoryId)
                         .then(response => response.json())
                         .then((res) => {
-                            console.log(res);
                             res.map((product) => {
                                 return arr.push({ value: product.id, label: product.name });
                             });
@@ -70,8 +69,6 @@ const ProductDetails = () => {
                 
             });
     }
-
-    console.log("final", productsToCompare);
 
     return (
         <div id="vue">
