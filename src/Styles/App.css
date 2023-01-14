@@ -2,6 +2,9 @@
   text-align: center;
 }
 
+.account_div > ul{
+  list-style-type: none
+}
 
 html,#root{
   min-width: 320px
